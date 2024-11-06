@@ -1,9 +1,8 @@
 package String.rev;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
-public class RMain3 {
+public class Main3R {
     public static String solution(String input) {
         String answer  = "";
 

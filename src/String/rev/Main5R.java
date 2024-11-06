@@ -2,7 +2,7 @@ package String.rev;
 
 import java.util.Scanner;
 
-public class RMain5 {
+public class Main5R {
     public static String solution(String input) {
         int lt = 0;
         int rt = input.length()-1;
