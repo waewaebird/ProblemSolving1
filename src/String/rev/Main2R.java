@@ -2,7 +2,7 @@ package String.rev;
 
 import java.util.Scanner;
 
-public class RMain2 {
+public class Main2R {
     public static String solution(String input) {
         String answer = "";
 

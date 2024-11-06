@@ -2,7 +2,7 @@ package String.rev;
 
 import java.util.Scanner;
 
-public class RMain1 {
+public class Main1R {
     public static int solution(String input1, String input2) {
         char ic = input2.toLowerCase().charAt(0);
         int cnt = 0;
