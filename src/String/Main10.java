@@ -67,5 +67,11 @@ public class Main10 {
 
         System.out.println(solution(input1, c));
 
+
+        for(int i : solution1(input1, c)) {
+            System.out.println(i);
+
+        }
+
     }
 }
