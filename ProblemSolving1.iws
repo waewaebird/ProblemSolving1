@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5527239d-ccea-41a3-b915-cb7ef6c23331" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/ProblemSolving1.iml" beforeDir="false" afterPath="$PROJECT_DIR$/ProblemSolving1.iml" afterDir="false" />
+    <list default="true" id="5527239d-ccea-41a3-b915-cb7ef6c23331" name="Changes" comment="Array ~ 3">
       <change beforePath="$PROJECT_DIR$/ProblemSolving1.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/ProblemSolving1.ipr" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ProblemSolving1.iws" beforeDir="false" afterPath="$PROJECT_DIR$/ProblemSolving1.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/questions.json" beforeDir="false" afterPath="$PROJECT_DIR$/src/questions.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +22,7 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
   &quot;lastFilter&quot;: {
@@ -56,7 +55,10 @@
     "Application.Main1RR.executor": "Run",
     "Application.Main2.executor": "Run",
     "Application.Main3.executor": "Run",
+    "Application.Main4.executor": "Run",
+    "Application.Main5.executor": "Run",
     "Application.Main7RR.executor": "Run",
+    "Application.Main9R.executor": "Run",
     "Application.Solution1.executor": "Run",
     "Downloaded.Files.Path.Enabled": "false",
     "Repository.Attach.Annotations": "false",
@@ -101,7 +103,17 @@
       <updated>1730380703755</updated>
       <workItem from="1730380704830" duration="1068000" />
       <workItem from="1730381792527" duration="1915000" />
+      <workItem from="1731320497127" duration="5141000" />
     </task>
+    <task id="LOCAL-00001" summary="Array ~ 3">
+      <option name="closed" value="true" />
+      <created>1730990225492</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1730990225492</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -117,5 +129,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Array ~ 3" />
+    <option name="LAST_COMMIT_MESSAGE" value="Array ~ 3" />
   </component>
 </project>
