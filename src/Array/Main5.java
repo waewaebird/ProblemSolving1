@@ -6,31 +6,19 @@ import java.util.Scanner;
 
 public class Main5 {
     public static int solution(int n){
-        List<Integer> ss = new ArrayList<>();
-        ss.add(2);
-        ss.add(3);
 
         List<Integer> arr = new ArrayList<>();
         for(int i = 4 ; i <n+1 ; i++) {
             arr.add(i);
         }
 
-        List<Integer> real = new ArrayList<>(arr);
+        for(int i = 4 ; i <n+1 ; i++) {
+            arr.add(i);
+        }
 
-        boolean flag = true;
         for(int i : arr) {
-            for(int j = 0 ; j <ss.size() ; j++) {
-                if(ss.get(j) * ss.get(j) > n) {
-                    flag = false;
-                    break;
-                }
-
-                if(i%ss.get(j) == 0) {
-                    real.remove(ss.get(j));
-                }
-            }
-            if(flag == false) {
-                break;
+            if(i%2 == 0) {
+                arr.remove(i);
             }
         }
 
