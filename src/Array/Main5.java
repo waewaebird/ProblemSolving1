@@ -1,6 +1,5 @@
 package Array;
 
-import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -9,7 +8,7 @@ public class Main5 {
     public static int solution(int n) {
         int answer = 0;
         int[] arr = new int[n+1];
-        ArrayList<Integer> temp = new ArrayList<>();
+        List<Integer> temp = new ArrayList<>();
 
         for(int i = 2 ; i <= n ; i++) {
             if(arr[i] == 0) {
