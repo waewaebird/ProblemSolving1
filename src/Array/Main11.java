@@ -26,52 +26,33 @@ public class Main11 {
 
     public static int solution(int n,  int[][] arr) {
         int answer = 0;
-        Map<Integer, Integer> am = new HashMap<>();
+        int max = 0;
 
-        for(int i = 0 ; i < 5 ; i++) {
-            List<Integer> temp = new ArrayList<>();
-            for(int j = 0 ; j < n ; j++) {
-                temp.add(arr[j][i]);
-            }
-            for(Integer nnn : temp){
-                if(Collections.frequency(temp, nnn) > 1) {
-                    for (int ii = 0; ii < temp.size(); ii++) {
-                        if (Objects.equals(temp.get(ii), nnn)) {
-                            if(am.get(ii+1) == null || am.get(ii+1) == 0) {
-                                am.put(ii+1, 1);
-                            } else {
-                                am.put(ii+1,am.get(ii+1)+1);
-                            }
-                        }
-                    }
-                }
-            }
+        for(int i = 0 ; i < n ; i++) {
+
         }
 
-        Integer maxV = Collections.max(am.values());
-        for(Integer key : am.keySet()) {
-            if(am.get(key) == maxV) {
-                answer = key;
-                break;
-            }
-        }
-
-        return answer;
+        return 0;
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
 
-        //int[][] arr = new int[n][5];
-        int[][] arr = new int[n+1][6];
+        /*int[][] arr = new int[n+1][6];
 
         for(int i = 1 ; i <= n ; i++) {
             for(int j = 1 ; j <= 5 ; j++) {
                 arr[i][j] = in.nextInt();
             }
-        }
+        }*/
 
+        int[][] arr = new int[n][5];
+        for(int i = 0 ; i < n ; i++) {
+            for(int j = 0 ; j < 5 ; j++) {
+                arr[i][j] = in.nextInt();
+            }
+        }
         System.out.println(solution(n, arr));
     }
 }
@@ -97,11 +78,5 @@ public class Main11 {
 1 2 3 7 8
 4 5 3 4 2
 6 2 8 4 2
-
-0
-
-
-
-
  */
 
