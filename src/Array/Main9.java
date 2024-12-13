@@ -5,7 +5,7 @@ import java.util.Scanner;
 
 public class Main9 {
     public static int solution2(int n, int[][] arr) {
-        int answer = Integer.MAX_VALUE;
+        int answer = Integer.MIN_VALUE;
         int sum1, sum2; //행 , 열
 
         for(int i = 0 ; i<n ; i++) {
@@ -76,6 +76,6 @@ public class Main9 {
             }
         }
 
-        System.out.println(solution(input1, arr));
+        System.out.println(solution2(input1, arr));
     }
 }
