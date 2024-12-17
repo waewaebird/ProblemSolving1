@@ -4,13 +4,14 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 
 public class DailyMain {
     public static void main(String[] args) throws IOException {
         int wantCnt = 2;
-        ArrayList<Integer> wantsArr = new ArrayList<>();
+        List<Integer> wantsArr = new ArrayList<>();
 
         JsonNode node = new ObjectMapper().readTree(new File("src/questions.json").getAbsoluteFile());
         Random random = new Random();
