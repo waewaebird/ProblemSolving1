@@ -2,6 +2,7 @@ import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
@@ -27,8 +28,14 @@ public class DailyMain {
         }
 
         for(Integer i : wantsArr) {
-            System.out.println();
-            System.out.println(node.get(i).toPrettyString());
+            JsonNode result = node.get(i);
+            System.out.println(result.toPrettyString() + System.lineSeparator());
+
+            try (FileWriter fileWriter = new FileWriter("src/record.txt", true)){
+                fileWriter.write(result.findValuesAsText("number").get(0) + System.lineSeparator());
+            } catch (IOException e) {
+                System.out.println(e);
+            }
         }
     }
 }
