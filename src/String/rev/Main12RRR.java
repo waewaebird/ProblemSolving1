@@ -20,8 +20,6 @@ public class Main12RRR {
                 break;
             }
         }
-
-
         return answer;
     }
 
