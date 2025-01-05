@@ -13,10 +13,8 @@ public class DailyMain {
     public static void main(String[] args) throws IOException {
         int wantCnt = 2;
         List<Integer> wantsArr = new ArrayList<>();
-
         JsonNode node = new ObjectMapper().readTree(new File("src/questions.json").getAbsoluteFile());
         Random random = new Random();
-
         while(wantsArr.size() < wantCnt) {
             int key = random.nextInt(node.size());
             if(!wantsArr.contains(key)) {
