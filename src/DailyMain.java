@@ -10,6 +10,10 @@ import java.util.Random;
 
 
 public class DailyMain {
+    public static void considerCnt(String number) {
+
+    }
+
     public static void main(String[] args) throws IOException {
         int wantCnt = 2;
         List<Integer> wantsArr = new ArrayList<>();
@@ -27,8 +31,9 @@ public class DailyMain {
 
         for(Integer i : wantsArr) {
             JsonNode result = node.get(i);
-            System.out.println(result.toPrettyString() + System.lineSeparator());
+            considerCnt(result.get("number").toString());
 
+            System.out.println(result.toPrettyString() + System.lineSeparator());
             try (FileWriter fileWriter = new FileWriter("src/record.txt", true)){
                 fileWriter.write(result.findValuesAsText("number").get(0) + System.lineSeparator());
             } catch (IOException e) {
