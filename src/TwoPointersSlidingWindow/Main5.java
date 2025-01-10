@@ -4,6 +4,42 @@ import java.util.Scanner;
 
 public class Main5 {
     public static int solution2(int n) {
+        //수학적으로
+        int answer = 0, cnt=1;
+        n--;
+        while(n>0) {
+            cnt++;
+            n=n-cnt;
+            if(n % cnt == 0) {
+                answer++;
+            }
+        }
+        return answer;
+
+
+
+        /*
+        int answer = 0;
+        int m = n/2 + 1;
+
+        for (int i = 2; i < m; i++) {
+            int sum = 0;
+            for (int j = 1; j <= i; j++) {
+                sum += j;
+            }
+
+            if(sum <= n && (n - sum) % i == 0){
+                answer++;
+            }
+        }
+        return answer;
+        */
+
+    }
+
+
+
+    public static int solution1(int n) {
         int answer = 0;
         int sum = 0;
         int lt = 0;
@@ -29,8 +65,6 @@ public class Main5 {
             }
 
         }
-
-
         return answer;
     }
 

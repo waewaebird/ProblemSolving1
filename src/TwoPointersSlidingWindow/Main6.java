@@ -1,11 +1,13 @@
 package TwoPointersSlidingWindow;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main6 {
     public static int solution2(int n, int k, int[] arr) {
         int answer = 0;
-        int cnt = 0;
+        int cnt = 0; // 0을 1로 바꾼 횟수
         int lt = 0;
 
         for(int rt = 0; rt<n; rt++) {
@@ -15,48 +17,46 @@ public class Main6 {
             while(cnt>k) {
                 if(arr[lt]==0) {
                     cnt--;
-                    lt++;
                 }
+                lt++;
             }
             answer = Math.max(answer,rt-lt+1);
 
         }
 
-
+        return answer;
     }
 
     public static int solution(int n, int k, int[] arr) {
-        int cnt = 0;
-        int min = 0;
         int answer = 0;
-
-        /*
-        20 2
-        1 0 1 1 1 1 1 0 1 0 1 1 1 1 1 0 1 1 0 1
-        */
+        int cnt = 0;
+        List<Integer> mins = new ArrayList<>();
+        int lt = 0;
 
         for (int i = 0; i < n; i++) {
             if(arr[i] == 1) {
-                cnt++;
+                cnt = cnt+1;
             } else {
+                mins.add(i+1);
+
                 if(k > 0) {
-                    if(i > min) {
-                        min = i; // 1
+                    k--;
+                    cnt = cnt+1;
+                } else {
+                    if(lt == 0) {
+                        cnt = cnt - mins.get(lt) + 1;
+                    } else {
+                        cnt = cnt - (mins.get(lt) - mins.get(lt-1))  + 1;
                     }
-                    k = k-1; //1 0
-                    cnt++; //2
-                } else if(k == 0) {
-                    k++;
-                    cnt = cnt - min + 1;
+                    lt++;
 
                 }
             }
+
             answer = Math.max(answer, cnt);
         }
 
-        return answer-1;
-
-
+        return answer;
     }
 
     public static void main(String[] args) {
@@ -71,7 +71,7 @@ public class Main6 {
             arr[i] = in.nextInt();
         }
 
-        System.out.println(solution(n,k,arr));
+        System.out.println(solution2(n,k,arr));
 
     }
 }
