@@ -1,6 +1,5 @@
 package HashMapTreeSet;
 
-import javafx.beans.property.FloatProperty;
 
 import java.util.*;
 
