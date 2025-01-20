@@ -7,5 +7,5 @@
 자료구조
 - HashMap
 - TreeSet
-- Stack
-- Queue
+- Stack = LIFO
+- Queue = FIFO
