@@ -101,6 +101,6 @@ public class Main5 {
 
         int n = in.nextInt();
 
-        System.out.println(solution2(n));
+        System.out.println(solution1(n));
     }
 }
