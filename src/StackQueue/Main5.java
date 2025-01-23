@@ -3,11 +3,28 @@ package StackQueue;
 import java.util.Scanner;
 import java.util.Stack;
 
-// ()(((()())(())()))(())
-// (()())
 public class Main5 {
+    public static int solution2(String str) {
+        int answer = 0;
+        Stack<Character> stack = new Stack<>();
+        for (int i = 0; i < str.length(); i++) {
+            if(str.charAt(i) == '(') {
+                stack.push('(');
+            } else {
+                stack.pop();
+                if(str.charAt(i-1) == '(') {
+                    answer += stack.size();
+                } else {
+                    answer++;
+                }
+            }
+        }
+        return answer;
+    }
     public static int solution(String s) {
         Stack<Character> stack = new Stack<>();
+
+        int answer = 0;
 
         int bar = 0;
         int leisure = 0;
@@ -16,6 +33,7 @@ public class Main5 {
             if(x == '(') {
                 if(s.charAt(i + 1) != ')') {
                    bar++;
+                   answer++;
                 }
                 stack.push(x);
             } else {
@@ -24,6 +42,8 @@ public class Main5 {
                 if(i > 0) {
                     if (s.charAt(i - 1) == '(') {
                         leisure++;
+                    } else {
+                        bar--;
                     }
                 }
             }
@@ -31,12 +51,7 @@ public class Main5 {
             if(leisure > 0) {
                 if(bar > 0) {
 
-                    if(bar == 1) {
-                        bar += 1;
-                    } else {
-                        bar = bar*2;
-                    }
-
+                    answer = answer+bar;
 
                 }
                 leisure--;
@@ -45,7 +60,7 @@ public class Main5 {
             i++;
         }
 
-        return bar;
+        return answer;
     }
 
 
