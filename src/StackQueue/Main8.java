@@ -1,9 +1,48 @@
 package StackQueue;
 
+
 import java.util.*;
 
 
 public class Main8 {
+    public static int solution2(int n,  int m, int[] arr){
+        int answer = 0;
+        Queue<Map<Integer,Integer>> queue = new LinkedList<>();
+
+        for (int i = 0; i < n; i++) {
+            Map<Integer, Integer> map = new HashMap<>();
+            map.put(i,arr[i]);
+            queue.offer(map);
+        }
+
+        while(!queue.isEmpty()) {
+            Map<Integer, Integer> temp = queue.poll();
+            boolean flag = true;
+
+            for(Map<Integer, Integer> map : queue) {
+
+                List<Integer> valuesList = new ArrayList<>(map.values());
+                List<Integer> tempList = new ArrayList<>(temp.values());
+
+
+                if(valuesList.get(0) > tempList.get(0)) {
+                    queue.offer(temp);
+                    flag = false;
+                    break;
+                }
+            }
+
+            if(flag == true) {
+                answer++;
+                if(temp.containsKey(m)) {
+                    break;
+                }
+            }
+        }
+        return answer;
+    }
+
+
     static class Person{
         int id;
         int priority;
@@ -54,6 +93,6 @@ public class Main8 {
             arr[i] = in.nextInt();
         }
 
-        System.out.println(solution(n,m,arr));
+        System.out.println(solution2(n,m,arr));
     }
 }
