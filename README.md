@@ -9,3 +9,8 @@
 - TreeSet
 - Stack = LIFO
 - Queue = FIFO
+
+정렬 알고리즘 :
+- 선택정렬
+- 버블정렬
+- 삽입정렬
