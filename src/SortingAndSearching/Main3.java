@@ -3,6 +3,7 @@ package SortingAndSearching;
 import java.util.Scanner;
 
 public class Main3 {
+    //삽입정렬
     public static int[] solution2(int n, int[] arr) {
         for (int i = 1; i < n; i++) {
             int tmp = arr[i], j;
