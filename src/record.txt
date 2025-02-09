@@ -42,3 +42,5 @@ a 6
 sq 4
 ht 2
 ts 6
+ss 7
+ts 3
