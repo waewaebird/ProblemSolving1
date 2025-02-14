@@ -7,9 +7,8 @@ class Node {
     |  lt | rt  |
     */
     int data;
-    Node lt, rt;
-
-
+    Node lt;
+    Node rt;
     public Node(int val) {
         data = val;
         lt = rt = null;
@@ -17,7 +16,7 @@ class Node {
 }
 
 public class Main5 {
-    Node root;
+    Node root; //선언 
     public void DFS(Node root) {
         if(root == null) {
             return;
@@ -32,7 +31,7 @@ public class Main5 {
 
     public static void main(String[] args) {
         Main5 tree = new Main5();
-        tree.root = new Node(1);
+        tree.root = new Node(1); // 초기화
         tree.root.lt = new Node(2);
         tree.root.rt = new Node(3);
         tree.root.lt.lt = new Node(4);
