@@ -5,8 +5,8 @@
 - SlidingWindow
 - 이분검색
 - 결정알고리즘
-- DFS 깊이우선탐색(Depth-First Search)
-- BFS 넓이우선탐색(Breadth-First Search) : 보통 최단거리..
+- DFS 깊이우선탐색(Depth-First Search) : 스택을 사용하여 탐색, 백트래킹 하며 경로를 탐색
+- BFS 넓이우선탐색(Breadth-First Search) : 큐를 사용하여 탐색, 보통 최단거리 문제에 활용
 
 자료구조 : 자바 컬렉션 프레임워크(JCF 구조)
 - HashMap
