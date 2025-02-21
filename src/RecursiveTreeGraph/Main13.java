@@ -13,8 +13,8 @@ public class Main13 {
         if(v == n) {
             answer++;
         } else {
-            for(int nv : graph.get(v)) {
-                if(ch[nv] == 0) {
+            for(int nv : graph.get(v)) { //v번 (ex 1번) 리스트
+                if(ch[nv] == 0) { //? 방문 ?
                     ch[nv] = 1;
                     DFS(nv);
                     ch[nv] = 0;
@@ -25,27 +25,28 @@ public class Main13 {
 
 
     public static void main(String[] args) {
-        Main12 T = new Main12();
+        Main13 T = new Main13();
         Scanner kb = new Scanner(System.in);
         n = kb.nextInt(); //node 갯수
         m = kb.nextInt(); //정점
-        graph = new ArrayList<>(); // 1부터 1 ~ n 번까지
+        graph = new ArrayList<>();
         for (int i = 0; i <= n ; i++) {
+            // 정수를 저장할 수 있는 객체 저장
+            // 정점만큼 객체를 생성 한다 0,1,2,3,4,5
             graph.add(new ArrayList<>());
         }
 
         ch = new int[n+1]; //체크배열
 
-        for (int i = 0; i < n; i++) {
+        for (int i = 0; i < m; i++) {
             int a= kb.nextInt();
             int b= kb.nextInt();
-            graph.get(a).add(b);
+            graph.get(a).add(b); //a번 List에 접근에 간선 번호를 넣어줌
         }
 
         ch[1] = 1; //1번노드 체크걸기
         T.DFS(1);
         System.out.println(answer);
-
     }
 
 }
