@@ -70,6 +70,6 @@ public class Main5 {
 
         String s= in.next();
 
-        System.out.println(solution(s));
+        System.out.println(solution2(s));
     }
 }
