@@ -15,17 +15,21 @@ public class DailyMain {
     }
 
     public static void main(String[] args) throws IOException {
-        int wantCnt = 2;
+        int wantCnt = 3;
         List<Integer> wantsArr = new ArrayList<>();
         JsonNode node = new ObjectMapper().readTree(new File("src/questions.json").getAbsoluteFile());
         Random random = new Random();
         while(wantsArr.size() < wantCnt) {
             int key = random.nextInt(node.size());
+
             if(!wantsArr.contains(key)) {
+                if(wantsArr.size() == wantCnt-1) {
+                    String subject = node.get(key).get("number").toString().split(" ")[0].replace("\"","");
+                    if(!subject.equals("rt")) {
+                        continue;
+                    }
+                }
                 wantsArr.add(key);
-            }
-            if(wantsArr.size() >= node.size()) {
-                break;
             }
         }
 
