@@ -65,3 +65,6 @@ s 8
 rt 8
 sq 5
 rt 2
+ss 10
+a 1
+rt 10 BFS
