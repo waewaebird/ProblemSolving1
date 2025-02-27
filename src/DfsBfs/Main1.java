@@ -70,8 +70,8 @@ public class Main1 {
             }
 
         } else {
-            DFS(L+1, sum+arr[L], arr);
-            DFS(L+1, sum, arr);
+            DFS(L+1, sum+arr[L], arr); // 부분집합의 합 트럭에 따는 바둑이의 무게(부분집합에 포함한다 현재)
+            DFS(L+1, sum, arr); // 부분집합에 포함하지 않는다.
         }
     }
 
