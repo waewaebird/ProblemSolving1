@@ -54,7 +54,7 @@ public class Main14RR {
 
         BFS(1);
 
-        for (int i = 2; i <= n ; i++) {
+        for (int i = 1; i <= n ; i++) {
             System.out.println(i + " : " + dis[i]);
         }
     }
