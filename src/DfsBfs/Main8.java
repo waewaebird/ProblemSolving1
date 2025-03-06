@@ -1,5 +1,7 @@
 package DfsBfs;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Main8 {
@@ -7,34 +9,75 @@ public class Main8 {
     static int f;
     static int L;
     static int[] arr;
+    static int[] ch;
+    static int[] pm;
+    static List<List<Integer>> all;
 
+    // 1. 총 조합을 구한다( ex : 4p!)
 
-    public static void DFS(int v, int[] arr) {
-        if(v == L+1) {
-            return;
+    // 2. 조합 하나당 파스칼그려나간다.
+
+    // 3. 최종 16이 나온는지 확인한다.
+
+    public static List<Integer> DFS2(List<Integer> ls) {
+        if(ls.size() == 1) {
+            return ls;
         } else {
-            L++;
-
-
-            DFS(v+1 , arr);
+            List<Integer> temp = new ArrayList<>();
+            for (int i = 0; i < ls.size(); i++) {
+                if(i > 0) {
+                    int bbc = ls.get(i) + ls.get(i-1);
+                    temp.add(bbc);
+                }
+            }
+            return DFS2(temp);
         }
+    }
 
+    public static void DFS(int L) {
+        if(L == n+1) {
+            List<Integer> temp = new ArrayList<>();
+            for(int x : pm) {
+                if(x > 0) {
+                    temp.add(x);
+                }
+            }
+            if(DFS2(temp).get(0) == f) {
+                for(Integer x : temp) {
+                    System.out.print(x + " ");
+                }
+                System.exit(0);
+            }
+
+        } else {
+            for (int i = 1; i <= n; i++) {
+                if(ch[i] == 0) {
+                    ch[i] = 1;
+                    pm[L] = arr[i];
+                    DFS(L+1);
+                    ch[i] = 0;
+                }
+            }
+        }
     }
 
 
     public static void main(String[] args) {
-        Main8 tree = new Main8();
-
         Scanner in = new Scanner(System.in);
         n = in.nextInt();
         f = in.nextInt();
 
+        all = new ArrayList<>();
+
         arr = new int[n+1];
 
-        for (int i = 1; i <= n; i++) {
-            arr[i] = 1;
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i;
         }
 
-        DFS(1, arr);
+        ch = new int[n+1];
+        pm = new int[n+1];
+
+        DFS(1);
     }
 }
