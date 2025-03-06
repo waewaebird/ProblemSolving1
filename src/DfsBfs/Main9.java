@@ -1,37 +1,22 @@
 package DfsBfs;
 
-import com.fasterxml.jackson.databind.introspect.Annotated;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
 public class Main9 {
     static int n;
     static int m;
-    static int[] arr;
-    static int[] ch;
-    static int[] answer;
-    static List<Integer> temp;
+    static int[] combi;
 
-    public static void DFS(int v) {
-
+    public static void DFS(int v, int s) {
         if(v == m) {
-            for (int x : answer) {
-                if(x > 0) {
-                    System.out.print(x + " ");
-                    temp.add(x);
-                }
+            for(int x : combi) {
+                System.out.print(x + " ");
             }
             System.out.println();
         } else {
-            for (int i = v; i < n; i++) {
-                if(ch[i] == 0) {
-                    ch[i] = 1;
-                    answer[v] = arr[i];
-                    DFS(v+1);
-                    ch[i] = 0;
-                }
+            for (int i = s; i <= n ; i++) {
+                combi[v] = i;
+                DFS(v+1, i+1); //i 가닥으로 뽑은 값
             }
         }
     }
@@ -43,15 +28,8 @@ public class Main9 {
         n = in.nextInt();
         m = in.nextInt();
 
-        arr = new int[n];
-        ch = new int[n];
-        answer = new int[n];
-        temp = new ArrayList<>();
+        combi = new int[m];
 
-        for (int i = 0; i < n; i++) {
-            arr[i] = i+1;
-        }
-
-        DFS(0);
+        DFS(0,1);
     }
 }
