@@ -37,13 +37,11 @@ public class Main9RR {
             if(calculate(mid , arr) <= m) { //중간값으로 DVD용량을 하면 어떤지 확인.
                 // 담을수 있는 cd 갯수를 확인
                 // DVD m장 안에 담을 수 있음
-                // 최대 용량을 줄여본다
                 answer = Math.min(answer,mid);
-                rt = mid-1;
+                rt = mid-1; // 더 큰용량은 볼필요가없음.
             } else {
                 // DVD m장 안에 담을 수 없음
-                // 용량을 늘려본다
-                lt = mid+1;
+                lt = mid+1; // 더 작은용량은 볼필요가 없음
             }
         }
 
