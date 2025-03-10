@@ -43,16 +43,18 @@ public class Main10 {
             answer++;
         } else {
             for (int i = 0; i < 4; i++) {
-
                 int tempx = x+dx[i];
                 int tempy = y+dy[i];
+                if(tempx >= 0 && tempx < 7 && tempy >= 0 && tempy < 7 && arr[tempx][tempy] == 0) {
+                    arr[tempx][tempy] = 1;
+                    DFS(tempx, tempy);
+                    arr[tempx][tempy] = 0;
 
-                if(tempx >= 0 && tempx < 7 &&tempy >= 0 && tempy < 7 && arr[tempx][tempy] == 0) {
-                    if(ch[tempx][tempy] == 0) {
+                    /*if(ch[tempx][tempy] == 0) {
                         ch[tempx][tempy] = 1;
                         DFS(tempx, tempy);
                         ch[tempx][tempy] = 0;
-                    }
+                    }*/
                 }
             }
         }
@@ -72,7 +74,9 @@ public class Main10 {
 
         //System.out.println(arr[0][3]);
 
-        ch[0][0] = 1;
+        arr[0][0] = 1;
+        //ch[0][0] = 1;
+
         DFS(0,0);
         System.out.println(answer);
     }
