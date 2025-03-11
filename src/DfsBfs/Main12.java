@@ -70,10 +70,5 @@ public class Main12 {
         } else {
             System.out.println(answer-1);
         }
-
-
-
-
-
     }
 }
