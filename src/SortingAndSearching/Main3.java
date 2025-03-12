@@ -7,7 +7,7 @@ public class Main3 {
     public static int[] solution2(int n, int[] arr) {
         for (int i = 1; i < n; i++) {
             int tmp = arr[i], j;
-            for(j = i=1; j >= 0 ; j--){
+            for(j = i-1; j >= 0 ; j--){
                 if(arr[j] > tmp ){
                     arr[j+1] = arr[j];
                 } else {
@@ -16,9 +16,6 @@ public class Main3 {
             }
             arr[j+1] = tmp;
         }
-
-
-
         return arr;
     }
 
@@ -50,7 +47,7 @@ public class Main3 {
             arr[i] = in.nextInt();
         }
 
-        for(int x : solution(n,arr)) {
+        for(int x : solution2(n,arr)) {
             System.out.print(x + " ");
         }
     }
