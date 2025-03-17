@@ -1,5 +1,13 @@
 # ProblemSolving1
 
+자료구조 : 자바 컬렉션 프레임워크(JCF 구조)
+- HashMap
+- TreeSet
+- Stack = LIFO
+- Queue = FIFO
+- 이진트리(상태트리) (부모 - 왼쪽자식, 오른쪽자식) : 전위순회, 중위순회, 후위순회
+- Priority Queue (기본적으로 최솟값을 꺼냄, reverseOrder 하면 최댓값)
+
 알고리즘 : 
 - TwoPointers
 
@@ -16,12 +24,6 @@
 
 - BFS 넓이우선탐색(Breadth-First Search) : 같은 레벨의 모든 노드를 먼저 탐색, 큐를 사용하여 탐색, 보통 최단거리 문제에 활용
 
-자료구조 : 자바 컬렉션 프레임워크(JCF 구조)
-- HashMap
-- TreeSet
-- Stack = LIFO
-- Queue = FIFO
-- 이진트리(상태트리) (부모 - 왼쪽자식, 오른쪽자식) : 전위순회, 중위순회, 후위순회
 
 정렬 알고리즘 :
 - 선택정렬 : 각 회차에서 최소값을 선택해서 제자리에 보내는 정렬.(처음부터 끝까지 순회하면서 최솟값을 찾고, 그 최솟값을 가장 앞자리의 인덱스와 교환해나감.)
