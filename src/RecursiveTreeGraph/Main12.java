@@ -11,6 +11,12 @@ public class Main12 {
 
     public void DFS(int v){ //정점
         if(v == n) {
+            for (int i = 1; i <= n ; i++) {
+                if(ch[i] > 0) {
+                    System.out.print( i + " ");
+                }
+            }
+            System.out.println();
             answer++;
         } else {
             for (int i = 1; i <= n; i++) {
