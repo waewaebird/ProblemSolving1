@@ -24,12 +24,16 @@ public class Main7 {
     static int[] dis;
     static int[] ch;
 
-    public static void DFS(int n) {
+    public static void DFS(int n, int cost) {
         if(n == V) {
             return;
         } else {
-            for (int i = 1; i <= V ; i++) {
-                DFS()
+            for(City temp : graph.get(n)) {
+                if(ch[temp.vex] == 0) {
+                    ch[temp.vex] = 1;
+                    DFS(temp.vex, cost+temp.cost);
+                    ch[temp.vex] = 0;
+                }
             }
         }
     }
@@ -76,7 +80,7 @@ public class Main7 {
             graph.get(a).add(new City(b,c));
         }
 
-        solution(1);
+        //solution(1);
 
         for (int x : dis) {
             System.out.print(x + " ");

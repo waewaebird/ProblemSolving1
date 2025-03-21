@@ -15,7 +15,7 @@ public class DailyMain {
     }
 
     public static void main(String[] args) throws IOException {
-        int wantCnt = 3;
+        int wantCnt = 4;
         List<Integer> wantsArr = new ArrayList<>();
         JsonNode node = new ObjectMapper().readTree(new File("src/questions.json").getAbsoluteFile());
         Random random = new Random();
@@ -23,9 +23,9 @@ public class DailyMain {
             int key = random.nextInt(node.size());
 
             if(!wantsArr.contains(key)) {
-                if(wantsArr.size() == wantCnt-1) {
+                if(wantsArr.size() == wantCnt-2 || wantsArr.size() == wantCnt-1) {
                     String subject = node.get(key).get("number").toString().split(" ")[0].replace("\"","");
-                    if(!subject.equals("rt")) {
+                    if(!subject.equals("db")) {
                         continue;
                     }
                 }
