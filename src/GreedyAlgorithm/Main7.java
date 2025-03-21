@@ -1,89 +1,83 @@
 package GreedyAlgorithm;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Scanner;
 
+// 그래프에서 트리를만들어내느것 :> 최소 스패닝트리
+// 그래프는 회로가 존재함
+// 트리는 회로가 존재 하지 않음 : 정점이 n이라면 간선은 n-1
+// 크루스칼 알고리즘.
 public class Main7 {
-    static class City implements Comparable <City>{
-        int vex;
+    static class Edge implements Comparable<Edge> {
+        int v1;
+        int v2;
         int cost;
 
-        public City(int vex, int cost) {
-            this.vex = vex;
+        public Edge(int v1, int v2, int cost) {
+            this.v1 = v1;
+            this.v2 = v2;
             this.cost = cost;
         }
 
         @Override
-        public int compareTo(City o) {
+        public int compareTo(Edge o) {
             return Integer.compare(this.cost, o.cost);
         }
     }
 
-    static int V;
-    static int E;
-    static List<List<City>> graph = new ArrayList<>();
-    static int[] dis;
-    static int[] ch;
-
-    public static void DFS(int n, int cost) {
-        if(n == V) {
-            return;
+    static int unf[];
+    public static int find(int v){
+        if(v == unf[v]) {
+            return v;
         } else {
-            for(City temp : graph.get(n)) {
-                if(ch[temp.vex] == 0) {
-                    ch[temp.vex] = 1;
-                    DFS(temp.vex, cost+temp.cost);
-                    ch[temp.vex] = 0;
-                }
-            }
+            return unf[v] = find(unf[v]);
         }
     }
 
-    public static void solution(int n) {
-        PriorityQueue<City> queue = new PriorityQueue<>();
+    public static void union(int a, int b) {
+        int fa = find(a);
+        int fb = find(b);
 
-        dis[n] = 0;
-        queue.offer(new City(n,0));
-
-        while(!queue.isEmpty()) {
-            City temp = queue.poll();
-
-            int nowCity = temp.vex;
-            int nowCityCost = temp.cost;
-
-            for (City c : graph.get(nowCity)) {
-                if(dis[c.vex] > nowCityCost + c.cost) {
-                    dis[c.vex] = nowCityCost + c.cost;
-                    queue.offer(new City(c.vex, nowCityCost + c.cost));
-                }
-            }
+        if(fa != fb) {
+            unf[fa] = fb;
         }
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
 
-        V = in.nextInt();
-        E = in.nextInt();
+        List<Edge> graph = new ArrayList<>();
 
-        for (int i = 0; i <= V; i++) {
-            graph.add(new ArrayList<>());
+        unf = new int[n+1];
+        for (int i = 1; i <= n ; i++) {
+            unf[i] = i; //초기화 각각의 집합숫자를 넣어줌
         }
-        dis = new int[V+1];
-        ch = new int[V+1];
-        Arrays.fill(dis, Integer.MAX_VALUE);
 
-        for (int i = 0; i < E; i++) {
+        for (int i = 0; i < m; i++) {
             int a = in.nextInt();
             int b = in.nextInt();
             int c = in.nextInt();
 
-            graph.get(a).add(new City(b,c));
+            graph.add(new Edge(a,b,c));
         }
 
-        //solution(1);
 
-        for (int x : dis) {
-            System.out.print(x + " ");
+        Collections.sort(graph);
+
+        int answer = 0;
+        for(Edge ob : graph) {
+            int fv1 = find(ob.v1);
+            int fv2 = find(ob.v2);
+
+            if(fv1 != fv2) {
+                answer += ob.cost;
+                union(fv1, fv2);
+            }
         }
+        System.out.println(answer);
     }
 }
