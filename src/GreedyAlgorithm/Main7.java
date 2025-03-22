@@ -65,7 +65,7 @@ public class Main7 {
             graph.add(new Edge(a,b,c));
         }
 
-
+        // 그리디 알고리즘 으로 쭉쭉
         Collections.sort(graph);
 
         int answer = 0;
