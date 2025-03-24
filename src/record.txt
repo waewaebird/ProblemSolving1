@@ -115,4 +115,6 @@ rt 1
 rt 12
 a 8
 db 1
-rt 2
+rt 2a 1
+sq 6
+db 12
