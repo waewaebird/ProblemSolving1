@@ -28,7 +28,7 @@ public class Main7RR {
     static List<City> graph = new ArrayList<>();
     static int[] unf;
 
-    public static int find(int v) {
+    public static int find(int v) { //대표 원소를 리턴하는것
         if(v == unf[v]) {
             return unf[v];
         } else {
