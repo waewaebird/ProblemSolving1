@@ -118,3 +118,6 @@ db 1
 rt 2a 1
 sq 6
 db 12
+rt 6
+ht 3
+db 1

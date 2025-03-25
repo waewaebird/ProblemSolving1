@@ -3,7 +3,7 @@ package GreedyAlgorithm;
 import java.util.*;
 
 //프림 최소스패닝트리 만드는법.
-public class Main7A {
+public class Main8 {
     static class Edge implements Comparable <Edge>{
         int vex;
         int cost;
