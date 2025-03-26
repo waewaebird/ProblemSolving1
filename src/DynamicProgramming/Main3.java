@@ -3,41 +3,37 @@ package DynamicProgramming;
 import java.util.Scanner;
 
 public class Main3 {
-    static int n;
-    static int[] arr;
-    static int answer = Integer.MIN_VALUE;
+    public static int solution(int[] arr) {
+        int answer = 0;
+        int[] dy = new int[arr.length];
+        dy[0] = 1;
 
-    public static void DFS(int v, int cnt) {
-        System.out.println(answer);
-        if(n - v < answer) {
-            return;
-        }
+        for (int i = 1; i < arr.length; i++) {
+            int max = 0;
 
-        if(v == n-1) {
-            answer = Math.max(answer, cnt);
-            return;
-        } else {
-            for (int i = v+1; i < n; i++) {
-                if(arr[v] < arr[i]) {
-                    DFS(i, cnt+1);
-                    DFS(i, cnt);
-                } else {
-                    DFS(i, cnt);
+            for (int j = i-1; j >= 0 ; j--) {
+                if(arr[j] < arr[i] && dy[j] > max) {
+                    max = dy[j];
                 }
             }
+            dy[i] = max+1;
+            answer = Math.max(answer, dy[i]);
         }
+
+        return answer;
 
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        n = in.nextInt();
-        arr = new int[n];
+
+        int n = in.nextInt();
+        int[] arr = new int[n];
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();
         }
-        DFS(0,1); //0번부터 출발
-        System.out.println(answer);
+
+        System.out.println(solution(arr));
     }
 }
 
