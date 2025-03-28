@@ -124,3 +124,6 @@ db 1
 ht 3
 sq 6
 db 12
+sq 6
+rt 5
+db 8

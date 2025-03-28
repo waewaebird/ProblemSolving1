@@ -13,32 +13,54 @@ public class Main12RR {
     public static int BFS(int[][] box) {
         Queue<int[]> queue = new LinkedList<>();
 
+        boolean flag = true;
+
+        int cnt = 0;
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < m; j++) {
                 if(box[i][j] == 1) {
                     queue.offer(new int[] {i,j});
+                } else if(box[i][j] == 1) {
+                    cnt++;
                 }
             }
         }
 
-        System.out.println(queue);
+        if(cnt == m*n) {
+            return 0;
+        }
 
         int answer = 0;
         while(!queue.isEmpty()) {
-            int[] temp = queue.poll();
+            int len = queue.size();
 
-            for (int i = 0; i < 4; i++) {
-                int nextX = temp[0]+ dx[i];
-                int nextY = temp[1]+ dy[i];
+            for (int k = 0; k < len; k++) {
+                int[] temp = queue.poll();
 
-                if(nextX >= 0 && nextX < n && nextY >= 0 && nextY < m && box[nextX][nextY] == 0) {
-                    queue.offer(new int[] {nextX, nextY});
+                for (int i = 0; i < 4; i++) {
+                    int nextX = temp[0]+ dx[i];
+                    int nextY = temp[1]+ dy[i];
+
+                    if(nextX >= 0 && nextX < n && nextY >= 0 && nextY < m && box[nextX][nextY] == 0) {
+                        box[nextX][nextY] = 1;
+                        queue.offer(new int[] {nextX, nextY});
+                    }
                 }
             }
+
             answer++;
         }
 
-        return answer;
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < m; j++) {
+                if(box[i][j] == 0) {
+                    return -1;
+                }
+            }
+        }
+
+
+        return answer-1;
     }
 
 
