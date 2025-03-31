@@ -127,3 +127,6 @@ db 12
 sq 6
 rt 5
 db 8
+db 3
+ga 6
+db 6
