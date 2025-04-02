@@ -20,6 +20,7 @@ public class Main3 {
             answer = Math.max(answer, dy[i]);
         }
 
+
         return answer;
 
     }
@@ -40,6 +41,9 @@ public class Main3 {
 
 
 /*
+1 1 2 3 2 1 4 2 4
+1 1 2 3 2 1 4 2 4
+
 3
 1 2 3
 답 : 3
