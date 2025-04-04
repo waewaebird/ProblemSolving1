@@ -1,5 +1,6 @@
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -35,14 +36,16 @@ public class DailyMain {
 
         for(Integer i : wantsArr) {
             JsonNode result = node.get(i);
-            considerCnt(result.get("number").toString());
 
-            System.out.println(result.toPrettyString() + System.lineSeparator());
             try (FileWriter fileWriter = new FileWriter("src/record.txt", true)){
                 fileWriter.write(result.findValuesAsText("number").get(0) + System.lineSeparator());
             } catch (IOException e) {
                 System.out.println(e);
             }
+
+            ((ObjectNode) result).remove("number");
+            System.out.println(result.toPrettyString() + System.lineSeparator());
+
         }
     }
 }

@@ -136,3 +136,6 @@ db 4
 s 6
 s 8
 db 4
+ss 6
+rt 8
+db 5
