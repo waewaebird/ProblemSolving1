@@ -2,7 +2,7 @@ package DfsBfs.rev;
 
 import java.util.*;
 
-public class Main14R {
+public class Main15R {
     static int N;
     static int M;
     static int[][] graph;
