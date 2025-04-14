@@ -16,7 +16,7 @@ public class DailyMain {
     }
 
     public static void main(String[] args) throws IOException {
-        int wantCnt = 3;
+        int wantCnt = 4;
         List<Integer> wantsArr = new ArrayList<>();
         JsonNode node = new ObjectMapper().readTree(new File("src/questions.json").getAbsoluteFile());
         Random random = new Random();
