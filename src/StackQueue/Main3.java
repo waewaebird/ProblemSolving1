@@ -79,6 +79,6 @@ public class Main3 {
             moves[i] = in.nextInt();
         }
 
-        System.out.println(solution(n,board,m,moves));
+        System.out.println(solution2(board,moves));
     }
 }
