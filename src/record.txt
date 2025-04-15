@@ -158,3 +158,7 @@ ga 7
 a 1
 s 1
 db 13
+rt 8
+ga 3
+sq 3
+db 12
