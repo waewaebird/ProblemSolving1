@@ -162,3 +162,7 @@ rt 8
 ga 3
 sq 3
 db 12
+sq 7
+ga 5
+a 12
+db 7
