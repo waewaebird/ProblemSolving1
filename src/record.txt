@@ -166,3 +166,7 @@ sq 7
 ga 5
 a 12
 db 7
+rt 14
+ga 1
+ga 5
+db 3
