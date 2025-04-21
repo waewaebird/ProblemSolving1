@@ -174,3 +174,7 @@ dp 6
 a 12
 ga 3
 db 15
+dp 1
+dp 2
+rt 4
+db 15
