@@ -31,16 +31,30 @@ public class Main1 {
         int[] dy = new int[list.size()+1];
         dy[0] = 0;
 
-        for(Top t : list) {
-            for (int i = 1; i <= list.size(); i++) {
-                dy[i] = Math.max(dy[i], t.height);
+        for (int i = 1; i <= list.size(); i++) {
+            for (int j = 0; j < list.size(); j++) {
+                if(list.get(i).weight > list.get(i-1).weight) {
+                    dy[i] = Math.max(dy[i], list.get(j).height);
+                }
             }
-            //System.out.println(t.width + " " + t.height + " " + t.weight);
         }
 
 
 
-        return answer;
+        for(Top t : list) {
+
+            System.out.println(t.width + " " + t.height + " " + t.weight);
+
+        }
+
+
+        for(int x : dy) {
+            System.out.println(x);
+        }
+
+
+
+        return dy[2];
     }
 
 
