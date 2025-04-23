@@ -1,6 +1,6 @@
-package XTest;
+package RecursiveTreeGraph.rev;
 
-public class Main3 {
+public class Main5RRRRRR {
     //이진트리 순회
     static class Node {
         int data;

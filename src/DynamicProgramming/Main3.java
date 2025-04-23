@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Main3 {
     public static int solution(int[] arr) {
         int answer = 0;
-        int[] dy = new int[arr.length];
+        int[] dy = new int[arr.length]; //arr i번째 숫자를 마지막 길이로 하는 배열
         dy[0] = 1;
 
         for (int i = 1; i < arr.length; i++) {

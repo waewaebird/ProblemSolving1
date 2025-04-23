@@ -1,9 +1,9 @@
 package RecursiveTreeGraph.rev;
 
 public class Node {
-    int data;
-    Node lt;
-    Node rt;
+    public int data;
+    public Node lt;
+    public Node rt;
 
     public Node(int val) {
         data = val;
