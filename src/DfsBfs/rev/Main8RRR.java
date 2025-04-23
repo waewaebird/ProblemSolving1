@@ -1,10 +1,10 @@
-package XTest;
+package DfsBfs.rev;
 
 import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Scanner;
 
-public class Main2 {
+public class Main8RRR {
     //수열 추축하기
     static int N;
     static int F;

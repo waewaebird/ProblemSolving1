@@ -1,8 +1,8 @@
-package XTest;
+package DfsBfs.rev;
 
 import java.util.Scanner;
 
-public class Main4 {
+public class Main1RRRR {
     //합이 같은 부분집합
     static int N;
     static int[] arr;

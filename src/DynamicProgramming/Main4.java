@@ -19,8 +19,8 @@ public class Main4 {
 
         @Override
         public int compareTo(Top o) {
-            //return Integer.compare(this.width, o.width);
-            return Integer.compare(o.width, this.width);
+            return Integer.compare(this.width, o.width);
+            //return Integer.compare(o.width, this.width);
         }
     }
 
