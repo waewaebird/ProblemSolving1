@@ -186,3 +186,7 @@ ht 3
 ts 6
 rt 9
 db 6
+dp 2
+sq 3
+ts 6
+db 13
