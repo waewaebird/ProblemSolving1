@@ -190,3 +190,7 @@ dp 2
 sq 3
 ts 6
 db 13
+ss 7
+ga 1
+dp 3
+db 9
