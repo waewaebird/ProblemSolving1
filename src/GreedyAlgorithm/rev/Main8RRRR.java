@@ -6,6 +6,7 @@ import java.util.PriorityQueue;
 import java.util.Scanner;
 
 public class Main8RRRR {
+    // 프림
     static class Wonder implements Comparable<Wonder>{
         int vex1;
         int cost;
@@ -21,16 +22,15 @@ public class Main8RRRR {
         }
 
     }
-    static int V;
-    static int E;
-    static List<List<Wonder>> list = new ArrayList<>();
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
-        V = in.nextInt();
-        E = in.nextInt();
+        int V = in.nextInt();
+        int E = in.nextInt();
 
+        List<List<Wonder>> list = new ArrayList<>(); //프림은 인접리스트로 그래프 표현
         int[] ch = new int[V+1];
 
         for (int i = 0; i <=V ; i++) {
