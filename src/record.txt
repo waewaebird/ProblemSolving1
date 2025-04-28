@@ -194,3 +194,7 @@ ss 7
 ga 1
 dp 3
 db 9
+ss 7
+sq 7
+sq 3
+db 7
