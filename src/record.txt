@@ -202,3 +202,11 @@ ht 1
 rt 1
 db 4
 db 11
+ss 7
+ga 5
+s 11
+db 3
+dp 3
+s 4
+rt 7
+db 1
