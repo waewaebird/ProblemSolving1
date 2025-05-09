@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Main4R {
+    // 후위식 연산(postfix)
     public static int solution(String s) {
         Stack<Integer> stack = new Stack<>();
 
