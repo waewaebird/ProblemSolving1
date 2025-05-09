@@ -210,3 +210,7 @@ dp 3
 s 4
 rt 7
 db 1
+ss 2
+sq 4
+db 10
+db 11
