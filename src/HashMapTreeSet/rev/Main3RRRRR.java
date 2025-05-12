@@ -2,28 +2,33 @@ package HashMapTreeSet.rev;
 
 import java.util.*;
 
-public class Main3RRR {
-    //매출액의 종류
+public class Main3RRRRR {
+
     public static List<Integer> solution(int n, int k, int[] arr) {
-        Map<Integer, Integer> hm = new HashMap<>();
-        List<Integer> answer = new ArrayList<>();
+        // 매출액의 종류
+        List<Integer> answers = new ArrayList<>();
+
+        Map<Integer, Integer> map = new HashMap<>();
 
         int cnt = 0;
         for (int i = 0; i < n; i++) {
-            hm.put(arr[i], hm.getOrDefault(arr[i], 0) + 1);
             cnt++;
+            map.put(arr[i], map.getOrDefault(arr[i], 0) + 1);
 
             if(cnt == k) {
-                answer.add(hm.size());
-                if(hm.get(arr[i-k+1]) == 1) {
-                    hm.remove(arr[i-k+1]);
+                answers.add(map.size());
+
+                if(map.get(arr[i-k+1]) == 1) {
+                    map.remove(arr[i-k+1]);
                 } else {
-                    hm.put(arr[i-k+1], hm.get(arr[i-k+1]) -1);
+                    map.put(arr[i-k+1], map.get(arr[i-k+1]) -1);
                 }
+
                 cnt--;
             }
         }
-        return answer;
+
+        return answers;
     }
 
     public static void main(String[] args) {
@@ -33,7 +38,6 @@ public class Main3RRR {
         int k = in.nextInt();
 
         int[] arr = new int[n];
-
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();
         }

@@ -3,6 +3,7 @@ package HashMapTreeSet.rev;
 import java.util.*;
 
 public class Main3RRRR {
+    //매출액의 종류
     public static List<Integer> solution(int n, int k, int[] arr) {
         List<Integer> answers = new ArrayList<>();
 
