@@ -3,6 +3,7 @@ package DfsBfs.rev;
 import java.util.Scanner;
 
 public class Main2RR {
+    // 바둑이 승차
     static int c;
     static int n;
     static int answer = 0;
