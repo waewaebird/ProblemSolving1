@@ -4,6 +4,7 @@ import java.util.Scanner;
 import java.util.Stack;
 
 public class Main_20250514_5 {
+    //Super Reduced String
     public static String solution(String str) {
         Stack<Character> stack = new Stack<>();
 

@@ -3,6 +3,7 @@ package zHackerRank;
 import java.util.Scanner;
 
 public class Main_20250514_4 {
+    //Strong Password
     static String numbers = "0123456789";
     static String lower_case = "abcdefghijklmnopqrstuvwxyz";
     static String upper_case = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
