@@ -3,6 +3,7 @@ package zHackerRank;
 import java.util.Scanner;
 
 public class Main_20250513_3 {
+    //Drawing Book
     public static int solution(int n, int p) {
         int a = p/2;
 
