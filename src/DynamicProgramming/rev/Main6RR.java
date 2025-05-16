@@ -3,6 +3,7 @@ package DynamicProgramming.rev;
 import java.util.Scanner;
 
 public class Main6RR {
+    //최대점수 구하기(냅색 알고리즘)
     static class Problem {
         int point;
         int time;
