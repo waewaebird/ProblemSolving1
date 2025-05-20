@@ -234,3 +234,7 @@ dp 6
 s 6
 rt 13
 db 7
+ss 5
+dp 3
+sq 5
+db 5
