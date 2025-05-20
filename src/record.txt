@@ -238,3 +238,7 @@ ss 5
 dp 3
 sq 5
 db 5
+ss 5
+ss 7
+db 11
+db 8
