@@ -6,7 +6,7 @@ import java.util.*;
 public class Main5 {
     public static int solution2(int n, int k, int[] arr) {
         //TreeSet 정렬, 중복제거
-        TreeSet<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
+        Set<Integer> Tset = new TreeSet<>(Collections.reverseOrder());
         for (int i = 0; i < n; i++) {
             for (int j = i+1; j < n; j++) {
                 for (int l = j+1; l < n; l++) {

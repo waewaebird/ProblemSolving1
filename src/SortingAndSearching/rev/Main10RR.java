@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main10RR {
+    //마구간 정하기
     public static int cal(int[] arr, int mid) {
         //말 배치
         int cnt = 1;
