@@ -250,3 +250,7 @@ dp 3
 db 3
 sq 4
 db 4
+ht 3
+ss 9
+ga 7
+db 2
