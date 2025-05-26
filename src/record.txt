@@ -254,3 +254,7 @@ ht 3
 ss 9
 ga 7
 db 2
+dp 2
+ga 2
+ss 2
+db 8
