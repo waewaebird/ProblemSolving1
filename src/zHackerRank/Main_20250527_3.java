@@ -20,7 +20,7 @@ public class Main_20250527_3 {
             return;
         }
 
-        if(v == X/2) {
+        if(v == X/2 + 1) {
             return;
         } else {
             DFS(v + 1, (int) (sum + Math.pow(v , N)));
