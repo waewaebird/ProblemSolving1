@@ -258,3 +258,7 @@ dp 2
 ga 2
 ss 2
 db 8
+sq 2
+s 7
+db 7
+db 3

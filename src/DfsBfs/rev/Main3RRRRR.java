@@ -2,36 +2,34 @@ package DfsBfs.rev;
 
 import java.util.Scanner;
 
-public class Main3RRRR {
+public class Main3RRRRR {
     // 최대점수 구하기(DFS)
-    static class Solve {
+    static class Prob {
         int p;
         int t;
-        public Solve(int p, int t) {
+        public Prob(int p, int t) {
             this.p = p;
             this.t = t;
         }
     }
 
-
-    // 최대점수 구하기(DFS)
     static int N;
-    static int M;
-    static Solve[] solves;
-    static int answer = Integer.MIN_VALUE;
+    static int R;
+    static Prob[] arr;
+    static int answer;
 
-    public static void DFS(int v, int p, int t) {
-        if(t <= M) {
-            answer = Math.max(answer,p);
-        } else {
+    public static void DFS(int v, int sum, int time) {
+        if(time > R) {
             return;
         }
+
+        answer = Math.max(answer, sum);
 
         if(v == N) {
             return;
         } else {
-            DFS(v + 1, p + solves[v].p , t + solves[v].t);
-            DFS(v + 1, p, t);
+            DFS(v+1, sum + arr[v].p, time + arr[v].t);
+            DFS(v+1, sum, time);
         }
     }
 
@@ -39,17 +37,19 @@ public class Main3RRRR {
         Scanner in = new Scanner(System.in);
 
         N = in.nextInt();
-        M = in.nextInt();
+        R = in.nextInt();
 
-        solves = new Solve[N];
+        arr = new Prob[N];
 
         for (int i = 0; i < N; i++) {
             int a = in.nextInt();
             int b = in.nextInt();
-            solves[i] = new Solve(a,b);
+
+            arr[i] = new Prob(a,b);
         }
 
         DFS(0,0,0);
         System.out.println(answer);
+
     }
 }

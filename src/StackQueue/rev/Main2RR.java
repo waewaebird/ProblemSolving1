@@ -3,11 +3,10 @@ package StackQueue.rev;
 import java.util.Scanner;
 import java.util.Stack;
 
-public class Main2R {
+public class Main2RR {
     // 괄호문자제거
     public static String solution(String s) {
         String answer = "";
-
         Stack<Character> stack = new Stack<>();
 
         for(char x : s.toCharArray()) {
@@ -16,12 +15,10 @@ public class Main2R {
             } else if(x == ')') {
                 stack.pop();
             } else {
-                if(stack.empty()) {
+                if(stack.size() == 0) {
                     answer += x;
                 }
             }
-
-
         }
 
         return answer;
@@ -29,7 +26,9 @@ public class Main2R {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+
         String s = in.next();
+
         System.out.println(solution(s));
     }
 }
