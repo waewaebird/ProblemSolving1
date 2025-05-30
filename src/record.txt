@@ -266,3 +266,7 @@ ht 3
 sq 1
 s 3
 db 8
+dp 4
+sq 8
+ht 1
+db 1
