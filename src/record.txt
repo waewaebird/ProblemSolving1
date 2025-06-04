@@ -270,3 +270,7 @@ dp 4
 sq 8
 ht 1
 db 1
+ss 8
+s 7
+a 2
+db 6
