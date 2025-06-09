@@ -278,3 +278,7 @@ dp 3
 rt 14
 s 5
 db 10
+ss 3
+a 4
+ts 6
+db 10
