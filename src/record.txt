@@ -286,3 +286,7 @@ ss 4
 ga 6
 a 4
 db 8
+dp 1
+rt 10
+ts 2
+db 11
