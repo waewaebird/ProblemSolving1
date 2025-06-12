@@ -290,3 +290,7 @@ dp 1
 rt 10
 ts 2
 db 11
+sq 8
+ss 8
+s 1
+db 2
