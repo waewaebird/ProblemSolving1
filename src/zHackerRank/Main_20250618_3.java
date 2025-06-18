@@ -1,6 +1,8 @@
+package zHackerRank;
+
 import java.util.Scanner;
 
-public class Main {
+public class Main_20250618_3 {
     // Running Time of Algorithms
     public static int solution(int n, int[] arr) {
         int answer = 0;
