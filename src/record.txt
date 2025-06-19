@@ -306,3 +306,7 @@ ss 9
 ga 7
 dp 1
 db 10
+ss 1
+db 1
+sq 6
+db 9
