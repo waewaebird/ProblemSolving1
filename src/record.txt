@@ -318,3 +318,7 @@ ga 4
 a 7
 ss 3
 db 10
+sq 8
+s 11
+ht 5
+db 4
