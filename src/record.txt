@@ -326,3 +326,7 @@ dp 5
 dp 2
 a 3
 db 9
+ga 7
+s 6
+ga 2
+db 4
