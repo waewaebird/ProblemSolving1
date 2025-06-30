@@ -334,3 +334,7 @@ sq 5
 db 2
 db 7
 db 5
+ss 2
+ts 3
+ts 5
+db 2
