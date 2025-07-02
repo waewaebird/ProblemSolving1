@@ -342,3 +342,7 @@ sq 1
 rt 6
 dp 4
 db 6
+ss 1
+db 15
+db 10
+db 9
