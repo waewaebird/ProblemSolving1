@@ -2,28 +2,19 @@ package String.rev;
 
 import java.util.Scanner;
 
-public class Main7RRRRRRRRRR {
+public class Main7RRRRRRRRRRR {
     // 회문 문자열
     public static String solution(String str) {
-        String answer = "YES";
-
-        int lt = 0;
-        int rt = str.length() - 1;
+        String temp = new StringBuilder(str).reverse().toString().toLowerCase();
 
         str = str.toLowerCase();
 
-        while(lt <= rt) {
-            if(str.charAt(lt) != str.charAt(rt)) {
-                answer = "NO";
-                break;
-            }
-            lt++;
-            rt--;
+        if(str.equals(temp)) {
+            return "YES";
+        } else {
+            return "NO";
         }
-
-        return answer;
     }
-
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
