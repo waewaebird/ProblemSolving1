@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main6RRRRRR {
-
+    // 뒤집은 소수
     public static List<Integer> solution(int n, int[] arr) {
         List<Integer> answers = new ArrayList<>();
         for(int a : arr) {

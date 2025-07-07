@@ -354,3 +354,7 @@ ht 2
 s 7
 dp 1
 db 8
+ga 4
+a 6
+db 12
+db 15
