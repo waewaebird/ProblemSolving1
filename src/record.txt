@@ -370,3 +370,7 @@ ht 4
 ts 5
 a 3
 db 10
+sq 8
+a 6
+ht 2
+db 2
