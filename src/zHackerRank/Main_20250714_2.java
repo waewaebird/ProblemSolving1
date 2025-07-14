@@ -1,20 +1,17 @@
+package zHackerRank;
+
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class ArithmeticExpressions {
+public class Main_20250714_2 {
     static int N;
     static int[] arr;
     static char[] op = {'*', '+', '-'};
-    static Map<String, Integer> memo = new HashMap<>();
     static boolean flag = false;
+    static Map<String, Boolean> memo = new HashMap<>();
 
     public static void DFS(int v, int oriSum, String oriStr) {
-        /*if(memo.get(oriStr) != null) {
-            return;
-        }
-        memo.put(oriStr, oriSum);*/
-
 
         if(flag) {
             return;
@@ -23,6 +20,13 @@ public class ArithmeticExpressions {
         if(oriSum > 100000) {
             return;
         }
+
+        oriSum = ((oriSum % 101) + 101) % 101;
+        String key = v + " , " + oriSum;
+        if(memo.containsKey(key)) {
+            return;
+        }
+        memo.put(key, true);
 
         if(v == N) {
             if(oriSum % 101 == 0) {
