@@ -374,3 +374,7 @@ sq 8
 a 6
 ht 2
 db 2
+ga 4
+ga 2
+ss 5
+db 6
