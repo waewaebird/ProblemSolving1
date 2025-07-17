@@ -382,3 +382,7 @@ dp 6
 ht 4
 rt 12
 db 7
+sq 7
+ss 3
+db 9
+db 11
