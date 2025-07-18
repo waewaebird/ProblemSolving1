@@ -386,3 +386,7 @@ sq 7
 ss 3
 db 9
 db 11
+dp 1
+sq 1
+a 3
+db 7
