@@ -19,9 +19,6 @@ public class BiggerisGreater {
             return "no answer";
         }
 
-        for(int x : arr) {
-            System.out.print(x + " ");
-        }
 
         int min = Integer.MAX_VALUE;
         int index = Integer.MIN_VALUE;
