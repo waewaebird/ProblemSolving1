@@ -7,8 +7,6 @@ import java.util.StringTokenizer;
 
 public class SaveHumanity {
     public static String solution(String p, String v) {
-        List<Integer> answers = new ArrayList<>();
-
         StringBuilder sbs = new StringBuilder("");
 
         int move = v.length();
@@ -32,7 +30,6 @@ public class SaveHumanity {
             }
 
             if(cnt <= 1) {
-                answers.add(lt);
                 sbs.append(lt + " ");
             }
 
