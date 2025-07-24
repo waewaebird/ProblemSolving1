@@ -398,3 +398,7 @@ ga 8
 a 4
 dp 4
 db 10
+sq 5
+ht 3
+db 9
+db 1
