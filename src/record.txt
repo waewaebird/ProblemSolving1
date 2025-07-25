@@ -402,3 +402,7 @@ sq 5
 ht 3
 db 9
 db 1
+ss 5
+rt 7
+ht 5
+db 9
