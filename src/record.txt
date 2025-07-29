@@ -406,3 +406,7 @@ ss 5
 rt 7
 ht 5
 db 9
+ga 7
+s 1
+db 8
+db 12
