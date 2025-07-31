@@ -414,3 +414,7 @@ sq 2
 a 6
 rt 7
 db 2
+ss 10
+s 2
+ga 2
+db 12
