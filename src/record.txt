@@ -422,3 +422,7 @@ sq 5
 a 7
 a 3
 db 7
+dp 3
+rt 10
+ss 6
+db 12
