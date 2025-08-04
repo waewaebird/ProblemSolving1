@@ -3,52 +3,15 @@ import java.util.*;
 public class BiggerisGreater {
 
     public static String solution(String str) {
-        Integer[] arr = new Integer[str.length()];
+        List<Integer> list = new ArrayList<>();
 
-        int cnt = 0;
-        for (int i = 0; i < str.length(); i++) {
-
-            arr[i] = (int) str.charAt(i);
-
-            if(i > 0 && str.charAt(i) > str.charAt(i-1)) {
-                cnt++;
-            }
+        for(char x : str.toCharArray()) {
+            list.add((int) x);
         }
 
-        if(cnt == 0) {
-            return "no answer";
-        }
+        System.out.println(list);
 
-
-        int min = Integer.MAX_VALUE;
-        int index = Integer.MIN_VALUE;
-
-        int exchange = 0;
-        for(int i = arr.length-1 ; i >= 0; i--) {
-            if(index == Integer.MIN_VALUE && arr[i] < min) {
-                min = arr[i];
-                index = i;
-            }
-
-            if(min > arr[i]) {
-                for (int j = index; j > i ; j--) {
-                    arr[j] = arr[j-1];
-                }
-                arr[i] = min;
-                exchange++;
-            }
-
-            if(exchange > 0) {
-                break;
-            }
-        }
-
-        String answer = "";
-        for(int x : arr) {
-            answer += (char) x;
-        }
-
-        return answer;
+        return null;
     }
 
     public static void main(String[] args) {
