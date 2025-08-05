@@ -426,3 +426,7 @@ dp 3
 rt 10
 ss 6
 db 12
+ga 7
+rt 5
+ts 3
+db 11
