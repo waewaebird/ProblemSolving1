@@ -1,7 +1,7 @@
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
+    // BLACK이 WHite Queen 잡는거 추가해야함
     static int[] Nm1 = {-2, -2, -1, -1,2,2,1,1};
     static int[] Nm2 = {-1,1,-2,2,1,1,-2,2};
 
@@ -31,566 +31,214 @@ public class Main {
     static int move;
     static String answer = "NO";
 
-    public static void solution(int V, String nowHorse, String nowIndex, int I, int J, int[] moving1, int[] moving2, String[][] board) {
+    public static void solution(int V, String nowHorse, String nowIndex, int I, int J, int[] moving1, int[] moving2, String[][] board, String[][] sim, String now) {
         if(answer.equals("YES")) {
             return;
         }
 
-        for (int k = 0; k < 3; k++) {
-            int ni = I + moving1[k];
-            int nj = J + moving2[k];
+        if(now.equals("w")) {
+            for (int k = 0; k < 3; k++) {
+                int ni = I + moving1[k];
+                int nj = J + moving2[k];
 
-            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                String[] tempArr = board[ni][nj].split(" ");
-                if(tempArr[0].equals("q")) {
-                    answer = "YES";
-                    break;
-                } else {
-                    if(!board[ni][nj].equals("")) {
+                if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                    String[] tempArr = sim[ni][nj].split(" ");
+                    if(tempArr[0].equals("q")) {
+                        answer = "NO";
                         break;
                     } else {
-                        board[I][J] = "";
-                        board[ni][nj] = nowHorse + " " + nowIndex;
+                        if(Character.isLowerCase(tempArr[0].charAt(0))) {
+                            break;
+                        } else {
+                            board[I][J] = "7 7";
+                            board[ni][nj] = nowHorse + " " + nowIndex;
 
-                        DFS(V+1, board, "b");
+                            DFS(V+1, board, "b");
 
-                        board[I][J] = nowHorse + " " + nowIndex;
-                        board[ni][nj] = "";
+                            board[I][J] = nowHorse + " " + nowIndex;
+                            board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                        }
+                    }
+                }
+            }
+        } else {
+            for (int k = 0; k < 3; k++) {
+                int ni = I + moving1[k];
+                int nj = J + moving2[k];
 
-                        //DFS(V+1, board, "b");
+                if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                    String[] tempArr = board[ni][nj].split(" ");
+                    if(tempArr[0].equals("Q")) {
+                        answer = "NO";
+                        break;
+                    } else {
+                        if(Character.isLowerCase(tempArr[0].charAt(0))) {
+                            break;
+                        } else {
+                            board[I][J] = "7 7";
+                            board[ni][nj] = nowHorse + " " + nowIndex;
+
+                            DFS(V+1, board, "w");
+
+                            board[I][J] = nowHorse + " " + nowIndex;
+                            board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                        }
                     }
                 }
             }
         }
-
-
     }
 
     public static void DFS(int v, String[][] board, String color) {
-        if(answer.equals("YES")) {
+        if (answer.equals("YES")) {
             return;
         }
 
-        if(v > move) {
+        if (v > move) {
             return;
         } else {
-            if(color.equals("w")) {
+            if (color.equals("w")) {
+                String[][] sim = simCheck(board, "w");
+
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < 4; j++) {
-                        if(!board[i][j].equals("") && !Character.isLowerCase(board[i][j].split(" ")[0].charAt(0))) {
-
+                        if (!sim[i][j].equals("0 0") && !sim[i][j].equals("7 7") && !Character.isLowerCase(sim[i][j].split(" ")[0].charAt(0))) {
                             String nowHorse = board[i][j].split(" ")[0];
                             String nowIndex = board[i][j].split(" ")[1];
 
-                            if(nowHorse.equals("Q")) {
-                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board);
+                            if (nowHorse.equals("Q")) {
+                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board);
+                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board);
+                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board);
+                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2,board);
+                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2,board);
+                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2,board);
+                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "w");
 
-                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2,board);
+                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "w");
 
-                            } else if(nowHorse.split(" ")[0].equals("N")) {
+                            } else if (nowHorse.split(" ")[0].equals("N")) {
                                 for (int k = 0; k < 8; k++) {
                                     int ni = i + Nm1[k];
                                     int nj = j + Nm2[k];
 
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-
+                                    if (ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
                                         String[] tempArr = board[ni][nj].split(" ");
-                                        if(tempArr[0].equals("q")) {
+                                        if (tempArr[0].equals("q")) {
                                             answer = "YES";
                                             break;
                                         } else {
-                                            if(!board[ni][nj].equals("")) {
+                                            if (Character.isUpperCase(tempArr[0].charAt(0))) {
                                                 break;
                                             } else {
-                                                board[i][j] = "";
+                                                board[i][j] = "7 7";
                                                 board[ni][nj] = nowHorse + " " + nowIndex;
 
-                                                DFS(v+1, board, "b");
+                                                DFS(v + 1, board, "b");
 
                                                 board[i][j] = nowHorse + " " + nowIndex;
-                                                board[ni][nj] = "";
-
+                                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
                                                 //DFS(v+1, board, "b");
                                             }
                                         }
                                     }
                                 }
-                            } else if(nowHorse.split(" ")[0].equals("B")) {
-                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board);
-
-                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board);
-
-                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board);
-
-                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board);
-                            } else {
-                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board);
-
-                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board);
-
-                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board);
-
-                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board);
+                            } else if (nowHorse.split(" ")[0].equals("B")) {
+                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "b");
+                            } else if (nowHorse.split(" ")[0].equals("R")) {
+                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
                             }
                         }
                     }
-                    if(answer.equals("YES")) {
+                    if (answer.equals("YES")) {
                         break;
                     }
                 }
             } else {
-                String[][] sim = new String[board.length][board[0].length];
-
-                int bi = 0;
-                int bj = 0;
-
-                for (int i = 0; i < board.length; i++) {
-                    for (int j = 0; j < board[i].length; j++) {
-                        sim[i][j] = board[i][j];
-
-                        if(sim[i][j].equals("BQ")) {
-                            bi = i;
-                            bj = j;
-                        }
-                    }
-                }
+                String[][] sim = simCheck(board, "b");
 
                 for (int i = 0; i < 4; i++) {
                     for (int j = 0; j < 4; j++) {
-                        if(!sim[i][j].equals("") && !sim[i][j].equals("-") && !sim[i][j].equals("BQ")) {
+                        if (!sim[i][j].equals("0 0") && !sim[i][j].equals("7 7") && !Character.isUpperCase(sim[i][j].split(" ")[0].charAt(0))) {
 
-                            System.out.println(sim[i][j]);
+                            String nowHorse = board[i][j].split(" ")[0];
+                            String nowIndex = board[i][j].split(" ")[1];
 
-                            String nowHorse = sim[i][j].split(" ")[0];
-                            String nowIndex = sim[i][j].split(" ")[1];
+                            if (nowHorse.equals("q")) {
+                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "b");
 
-                            if(nowHorse.equals("Q")) {
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm1_1[k];
-                                    int nj = j + Bm1_2[k];
+                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "b");
 
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
+                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "b");
 
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm2_1[k];
-                                    int nj = j + Bm2_2[k];
+                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "b");
 
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
+                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
 
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm3_1[k];
-                                    int nj = j + Bm3_2[k];
+                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
 
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
+                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
 
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm4_1[k];
-                                    int nj = j + Bm4_2[k];
+                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
 
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm1_1[k];
-                                    int nj = j + Rm1_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm2_1[k];
-                                    int nj = j + Rm2_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm3_1[k];
-                                    int nj = j + Rm3_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm4_1[k];
-                                    int nj = j + Rm4_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-                            } else if(nowHorse.split(" ")[0].equals("N")) {
+                            } else if (nowHorse.split(" ")[0].equals("n")) {
                                 for (int k = 0; k < 8; k++) {
                                     int ni = i + Nm1[k];
                                     int nj = j + Nm2[k];
 
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
+                                    if (ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                        String[] tempArr = board[ni][nj].split(" ");
+                                        if (tempArr[0].equals("Q")) {
+                                            answer = "YES";
+                                            break;
+                                        } else {
+                                            if (Character.isLowerCase(tempArr[0].charAt(0))) {
                                                 break;
                                             } else {
-                                                sim[ni][nj] = "-";
+                                                board[i][j] = "7 7";
+                                                board[ni][nj] = nowHorse + " " + nowIndex;
+
+                                                DFS(v + 1, board, "w");
+
+                                                board[i][j] = nowHorse + " " + nowIndex;
+                                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
                                             }
                                         }
                                     }
                                 }
-                            } else if(nowHorse.split(" ")[0].equals("B")) {
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm1_1[k];
-                                    int nj = j + Bm1_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm2_1[k];
-                                    int nj = j + Bm2_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm3_1[k];
-                                    int nj = j + Bm3_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Bm4_1[k];
-                                    int nj = j + Bm4_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-                            } else {
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm1_1[k];
-                                    int nj = j + Rm1_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm2_1[k];
-                                    int nj = j + Rm2_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm3_1[k];
-                                    int nj = j + Rm3_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
-                                }
-
-                                for (int k = 0; k < 3; k++) {
-                                    int ni = i + Rm4_1[k];
-                                    int nj = j + Rm4_2[k];
-
-                                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        if(!sim[ni][nj].equals("BQ")) {
-                                            if(!sim[ni][nj].equals("")) {
-                                                break;
-                                            } else {
-                                                sim[ni][nj] = "-";
-                                            }
-                                        }
-                                    }
+                            } else if (nowHorse.split(" ")[0].equals("b")) {
+                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "b");
+                            } else if (nowHorse.split(" ")[0].equals("r")) {
+                                {
+                                    solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
+                                    solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
+                                    solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
+                                    solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
                                 }
                             }
                         }
-                    }
-                }
-
-
-                for (int y = 0; y < 4; y++) {
-                    for (int u = 0; u < 4; u++) {
-                        String temp = sim[y][u];
-                        if(sim[y][u].equals("")) {
-                            temp = "X";
-                        }
-
-                        System.out.print(temp + " ");
-                    }
-                    System.out.println();
-                }
-
-                System.out.println();
-                System.out.println();
-                System.out.println();
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Bm1_1[k];
-                    int nj = bj + Bm1_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Bm2_1[k];
-                    int nj = bj + Bm2_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Bm3_1[k];
-                    int nj = bj + Bm3_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Bm4_1[k];
-                    int nj = bj + Bm4_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Rm1_1[k];
-                    int nj = bj + Rm1_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Rm2_1[k];
-                    int nj = bj + Rm2_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Rm3_1[k];
-                    int nj = bj + Rm3_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
-                        }
-                    }
-                }
-
-                for (int k = 0; k < 3; k++) {
-                    int ni = bi + Rm4_1[k];
-                    int nj = bj + Rm4_2[k];
-
-                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                        if(sim[ni][nj].equals("")) {
-                            board[bi][bj] = "";
-                            board[ni][nj] = "BQ";
-
-                            DFS(v+1, board, "w");
-
-                            board[bi][bj] = "BQ";
-                            board[ni][nj] = "";
+                        if (answer.equals("YES")) {
+                            break;
                         }
                     }
                 }
             }
         }
-
     }
 
     public static void main(String[] args) {
@@ -603,7 +251,7 @@ public class Main {
 
             for (int j = 0; j < 4; j++) {
                 for (int k = 0; k < 4; k++) {
-                    board[j][k] = "";
+                    board[j][k] = "7 7";
                 }
             }
 
@@ -628,7 +276,7 @@ public class Main {
                 }
 
                 tempi = Math.abs(I - 4);
-                board[tempi][tempj] = str + " " + j;
+                board[tempi][tempj] = str.toUpperCase() + " " + j;
             }
 
             for (int j = 0; j < b; j++) {
@@ -652,11 +300,252 @@ public class Main {
                 board[tempi][tempj] = str.toLowerCase() + " " + j;
             }
 
-
             DFS(0, board, "w");
 
             System.out.println(answer);
         }
+    }
 
+    public static String[][] simCheck(String[][] board, String now) {
+        String[][] sim = new String[board.length][board[0].length];
+
+        for (int i = 0; i < board.length; i++) {
+            for (int j = 0; j < board[i].length; j++) {
+                sim[i][j] = board[i][j];
+            }
+        }
+
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                if(!sim[i][j].equals("7 7") && !sim[i][j].equals("0 0")) {
+                    String nowHorse = sim[i][j].split(" ")[0];
+                    String nowIndex = sim[i][j].split(" ")[1];
+                    
+                    if(now.equals("w") ? nowHorse.equals("Q") : nowHorse.equals("q")) {
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm1_1[k];
+                            int nj = j + Bm1_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm2_1[k];
+                            int nj = j + Bm2_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm3_1[k];
+                            int nj = j + Bm3_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm4_1[k];
+                            int nj = j + Bm4_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm1_1[k];
+                            int nj = j + Rm1_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm2_1[k];
+                            int nj = j + Rm2_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm3_1[k];
+                            int nj = j + Rm3_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm4_1[k];
+                            int nj = j + Rm4_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+                    } else if(now.equals("w") ? nowHorse.equals("N") : nowHorse.equals("n")) {
+                        for (int k = 0; k < 8; k++) {
+                            int ni = i + Nm1[k];
+                            int nj = j + Nm2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+                    } else if(now.equals("w") ? nowHorse.equals("B") : nowHorse.equals("b")) {
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm1_1[k];
+                            int nj = j + Bm1_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm2_1[k];
+                            int nj = j + Bm2_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm3_1[k];
+                            int nj = j + Bm3_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Bm4_1[k];
+                            int nj = j + Bm4_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+                    } else if(now.equals("w") ? nowHorse.equals("R") : nowHorse.equals("r")) {
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm1_1[k];
+                            int nj = j + Rm1_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm2_1[k];
+                            int nj = j + Rm2_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm3_1[k];
+                            int nj = j + Rm3_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+
+                        for (int k = 0; k < 3; k++) {
+                            int ni = i + Rm4_1[k];
+                            int nj = j + Rm4_2[k];
+
+                            if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                                if(sim[ni][nj].equals("7 7")) {
+                                    sim[ni][nj] = "0 0";
+                                } else {
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        return sim;
     }
 }
