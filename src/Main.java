@@ -2,9 +2,10 @@ import java.util.Scanner;
 
 public class Main {
     // BLACK이 WHite Queen 잡는거 추가해야함
+    // YES OR NO LOGIC 을 정해야함.
+    // solution에서 sim배열 체크 다시하기
     static int[] Nm1 = {-2, -2, -1, -1,2,2,1,1};
-    static int[] Nm2 = {-1,1,-2,2,1,1,-2,2};
-
+    static int[] Nm2 = {-1,1,-2,2,1,-1,-2,2};
     static int[] Bm1_1 = {-1,-2,-3};
     static int[] Bm1_2 = {-1,-2,-3};
 
@@ -12,7 +13,7 @@ public class Main {
     static int[] Bm2_2 = {1,2,3};
 
     static int[] Bm3_1 = {1,2,3};
-    static int[] Bm3_2 = {-1,2,-3};
+    static int[] Bm3_2 = {-1,-2,-3};
 
     static int[] Bm4_1 = {1,2,3};
     static int[] Bm4_2 = {1,2,3};
@@ -37,51 +38,105 @@ public class Main {
         }
 
         if(now.equals("w")) {
-            for (int k = 0; k < 3; k++) {
-                int ni = I + moving1[k];
-                int nj = J + moving2[k];
+            if (!nowHorse.equals("N")) {
+                for (int k = 0; k < 3; k++) {
+                    int ni = I + moving1[k];
+                    int nj = J + moving2[k];
 
-                if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                    String[] tempArr = sim[ni][nj].split(" ");
-                    if(tempArr[0].equals("q")) {
-                        answer = "NO";
-                        break;
-                    } else {
-                        if(Character.isLowerCase(tempArr[0].charAt(0))) {
+                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                        String[] tempArr = sim[ni][nj].split(" ");
+                        if(tempArr[0].equals("q")) {
+                            answer = "YES";
                             break;
                         } else {
-                            board[I][J] = "7 7";
-                            board[ni][nj] = nowHorse + " " + nowIndex;
+                            if(Character.isLowerCase(tempArr[0].charAt(0))) {
+                                break;
+                            } else {
+                                board[I][J] = "7 7";
+                                board[ni][nj] = nowHorse + " " + nowIndex;
 
-                            DFS(V+1, board, "b");
+                                DFS(V+1, board, "b");
 
-                            board[I][J] = nowHorse + " " + nowIndex;
-                            board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                                board[I][J] = nowHorse + " " + nowIndex;
+                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                            }
+                        }
+                    }
+                }
+            } else {
+                for (int k = 0; k < 8; k++) {
+                    int ni = I + moving1[k];
+                    int nj = J + moving2[k];
+
+                    if (ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                        String[] tempArr = sim[ni][nj].split(" ");
+                        if (tempArr[0].equals("q")) {
+                            answer = "YES";
+                            break;
+                        } else {
+                            if (Character.isUpperCase(tempArr[0].charAt(0))) {
+                                break;
+                            } else {
+                                board[I][J] = "7 7";
+                                board[ni][nj] = nowHorse + " " + nowIndex;
+
+                                DFS(V + 1, board, "b");
+
+                                board[I][J] = nowHorse + " " + nowIndex;
+                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                            }
                         }
                     }
                 }
             }
         } else {
-            for (int k = 0; k < 3; k++) {
-                int ni = I + moving1[k];
-                int nj = J + moving2[k];
+            if(!nowHorse.equals("n")) {
+                for (int k = 0; k < 3; k++) {
+                    int ni = I + moving1[k];
+                    int nj = J + moving2[k];
 
-                if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                    String[] tempArr = board[ni][nj].split(" ");
-                    if(tempArr[0].equals("Q")) {
-                        answer = "NO";
-                        break;
-                    } else {
-                        if(Character.isLowerCase(tempArr[0].charAt(0))) {
+                    if(ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                        String[] tempArr = board[ni][nj].split(" ");
+                        if(tempArr[0].equals("Q")) {
+                            answer = "NO";
                             break;
                         } else {
-                            board[I][J] = "7 7";
-                            board[ni][nj] = nowHorse + " " + nowIndex;
+                            if(Character.isLowerCase(tempArr[0].charAt(0))) {
+                                break;
+                            } else {
+                                board[I][J] = "7 7";
+                                board[ni][nj] = nowHorse + " " + nowIndex;
 
-                            DFS(V+1, board, "w");
+                                DFS(V+1, board, "w");
 
-                            board[I][J] = nowHorse + " " + nowIndex;
-                            board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                                board[I][J] = nowHorse + " " + nowIndex;
+                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                            }
+                        }
+                    }
+                }
+            } else {
+                for (int k = 0; k < 8; k++) {
+                    int ni = I + moving1[k];
+                    int nj = J + moving2[k];
+
+                    if (ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
+                        String[] tempArr = board[ni][nj].split(" ");
+                        if (tempArr[0].equals("Q")) {
+                            answer = "NO";
+                            break;
+                        } else {
+                            if (Character.isLowerCase(tempArr[0].charAt(0))) {
+                                break;
+                            } else {
+                                board[I][J] = "7 7";
+                                board[ni][nj] = nowHorse + " " + nowIndex;
+
+                                DFS(V + 1, board, "w");
+
+                                board[I][J] = nowHorse + " " + nowIndex;
+                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
+                            }
                         }
                     }
                 }
@@ -108,57 +163,25 @@ public class Main {
 
                             if (nowHorse.equals("Q")) {
                                 solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "w");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "w");
-
-                            } else if (nowHorse.split(" ")[0].equals("N")) {
-                                for (int k = 0; k < 8; k++) {
-                                    int ni = i + Nm1[k];
-                                    int nj = j + Nm2[k];
-
-                                    if (ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        String[] tempArr = board[ni][nj].split(" ");
-                                        if (tempArr[0].equals("q")) {
-                                            answer = "YES";
-                                            break;
-                                        } else {
-                                            if (Character.isUpperCase(tempArr[0].charAt(0))) {
-                                                break;
-                                            } else {
-                                                board[i][j] = "7 7";
-                                                board[ni][nj] = nowHorse + " " + nowIndex;
-
-                                                DFS(v + 1, board, "b");
-
-                                                board[i][j] = nowHorse + " " + nowIndex;
-                                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
-                                                //DFS(v+1, board, "b");
-                                            }
-                                        }
-                                    }
-                                }
+                            } else if (nowHorse.equals("N")) {
+                                solution(v, nowHorse, nowIndex, i, j, Nm1, Nm1, board, sim, "w");
                             } else if (nowHorse.split(" ")[0].equals("B")) {
-                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "b");
-                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "b");
-                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "b");
-                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "w");
+                                solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "w");
+                                solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "w");
+                                solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "w");
                             } else if (nowHorse.split(" ")[0].equals("R")) {
-                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
-                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
-                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
-                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "w");
+                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "w");
+                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "w");
+                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "w");
                             }
                         }
                     }
@@ -178,58 +201,26 @@ public class Main {
 
                             if (nowHorse.equals("q")) {
                                 solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
-
                                 solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
 
-                            } else if (nowHorse.split(" ")[0].equals("n")) {
-                                for (int k = 0; k < 8; k++) {
-                                    int ni = i + Nm1[k];
-                                    int nj = j + Nm2[k];
-
-                                    if (ni >= 0 && ni < 4 && nj >= 0 && nj < 4) {
-                                        String[] tempArr = board[ni][nj].split(" ");
-                                        if (tempArr[0].equals("Q")) {
-                                            answer = "YES";
-                                            break;
-                                        } else {
-                                            if (Character.isLowerCase(tempArr[0].charAt(0))) {
-                                                break;
-                                            } else {
-                                                board[i][j] = "7 7";
-                                                board[ni][nj] = nowHorse + " " + nowIndex;
-
-                                                DFS(v + 1, board, "w");
-
-                                                board[i][j] = nowHorse + " " + nowIndex;
-                                                board[ni][nj] = tempArr[0] + " " + tempArr[1];
-                                            }
-                                        }
-                                    }
-                                }
+                            } else if (nowHorse.equals("n")) {
+                                solution(v, nowHorse, nowIndex, i, j, Nm1, Nm1, board, sim, "b");
                             } else if (nowHorse.split(" ")[0].equals("b")) {
                                 solution(v, nowHorse, nowIndex, i, j, Bm1_1, Bm1_2, board, sim, "b");
                                 solution(v, nowHorse, nowIndex, i, j, Bm2_1, Bm2_2, board, sim, "b");
                                 solution(v, nowHorse, nowIndex, i, j, Bm3_1, Bm3_2, board, sim, "b");
                                 solution(v, nowHorse, nowIndex, i, j, Bm4_1, Bm4_2, board, sim, "b");
                             } else if (nowHorse.split(" ")[0].equals("r")) {
-                                {
-                                    solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
-                                    solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
-                                    solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
-                                    solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
-                                }
+                                solution(v, nowHorse, nowIndex, i, j, Rm1_1, Rm1_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm2_1, Rm2_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm3_1, Rm3_2, board, sim, "b");
+                                solution(v, nowHorse, nowIndex, i, j, Rm4_1, Rm4_2, board, sim, "b");
                             }
                         }
                         if (answer.equals("YES")) {
@@ -300,6 +291,7 @@ public class Main {
                 board[tempi][tempj] = str.toLowerCase() + " " + j;
             }
 
+
             DFS(0, board, "w");
 
             System.out.println(answer);
@@ -321,7 +313,7 @@ public class Main {
                     String nowHorse = sim[i][j].split(" ")[0];
                     String nowIndex = sim[i][j].split(" ")[1];
                     
-                    if(now.equals("w") ? nowHorse.equals("Q") : nowHorse.equals("q")) {
+                    if(now.equals("w") ? nowHorse.equals("q") : nowHorse.equals("Q")) {
                         for (int k = 0; k < 3; k++) {
                             int ni = i + Bm1_1[k];
                             int nj = j + Bm1_2[k];
@@ -425,7 +417,7 @@ public class Main {
                                 }
                             }
                         }
-                    } else if(now.equals("w") ? nowHorse.equals("N") : nowHorse.equals("n")) {
+                    } else if(now.equals("w") ? nowHorse.equals("n") : nowHorse.equals("N")) {
                         for (int k = 0; k < 8; k++) {
                             int ni = i + Nm1[k];
                             int nj = j + Nm2[k];
@@ -438,7 +430,7 @@ public class Main {
                                 }
                             }
                         }
-                    } else if(now.equals("w") ? nowHorse.equals("B") : nowHorse.equals("b")) {
+                    } else if(now.equals("w") ? nowHorse.equals("b") : nowHorse.equals("B")) {
                         for (int k = 0; k < 3; k++) {
                             int ni = i + Bm1_1[k];
                             int nj = j + Bm1_2[k];
@@ -490,7 +482,7 @@ public class Main {
                                 }
                             }
                         }
-                    } else if(now.equals("w") ? nowHorse.equals("R") : nowHorse.equals("r")) {
+                    } else if(now.equals("w") ? nowHorse.equals("r") : nowHorse.equals("R")) {
                         for (int k = 0; k < 3; k++) {
                             int ni = i + Rm1_1[k];
                             int nj = j + Rm1_2[k];
