@@ -442,3 +442,7 @@ ss 7
 db 2
 a 10
 db 15
+ga 3
+s 1
+ss 10
+db 2
