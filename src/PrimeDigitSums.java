@@ -2,78 +2,59 @@ import java.math.BigDecimal;
 import java.util.*;
 
 public class PrimeDigitSums {
-    static Map<BigDecimal, Integer> sss = new HashMap<>();
-    public static int calSosu(BigDecimal number) {
-        if(sss.get(number) != null) {
-            return sss.get(number);
-        }
+    public static int calSosu(int a, int b) {
+        int count = 0;
 
-        int answer = 1;
-        BigDecimal i = new BigDecimal(2);
+        for (int i = a; i <= b; i++) {
+            boolean flag = true;
 
-        while(i.compareTo(number.divide(new BigDecimal(2)).add(BigDecimal.ONE)) < 0) {
-            if(number.remainder(i) == BigDecimal.ZERO) {
-                answer = -1;
-                break;
+            for (int j = 2; j < i ; j++) {
+                if(i % j == 0) {
+                    flag = false;
+                    break;
+                }
             }
-            i = i.add(BigDecimal.ONE);
+
+            if(flag) {
+                count++;
+            }
         }
 
-        sss.put(number, answer);
-        return answer;
+        return count;
     }
 
 
     public static String solution(int n) {
-        BigDecimal answer = BigDecimal.ZERO;
+        int three = 9; //100 ~ 999 = > 2 ~ 27
+        int four = 11; //1000 ~ 9999 => 2 ~ 36
+        int five = 14; //10000 ~ 99999 => 2 ~ 45
 
 
-        StringBuilder mins = new StringBuilder("1");
-        StringBuilder maxs = new StringBuilder("9");
-        for (int i = 0; i < n-1; i++) {
-            mins.append('0');
-            maxs.append('9');
+        // 999999 6=> 3 => 4
+        // 999999 6=> 4 => 3
+        // 999999 6=> 5 => 2
+
+        // 9999999 7=> 3 => 5
+        // 9999999 7=> 4 => 4
+        // 9999999 7=> 5 => 3
+
+        int sum = 0;
+
+        for (int i = 3; i <= 5 ; i++) {
+            int now = (n + 1) - i;
+
+            if(i == 3) {
+                sum += three * now;
+            } else if(i == 4) {
+                sum += four * now;
+            } else if(i == 5) {
+                sum += five * now;
+            }
         }
 
-        BigDecimal min = new BigDecimal(mins.toString());
-        BigDecimal max = new BigDecimal(maxs.toString());
-
-        sss.put(BigDecimal.ZERO, -1);
-        sss.put(BigDecimal.ONE, -1);
-
-        while(min.compareTo(max) < 0) {
-            boolean br = false;
-
-            String temp = String.valueOf(min);
-            for (int length = 3; length <= 5 ; length++) {
-                if(br) {
-                    break;
-                }
-
-                BigDecimal sum = BigDecimal.ZERO;
-                int lt = 0;
-                for (int rt = 0; rt < temp.length(); rt++) {
-                    sum = sum.add(new BigDecimal(Integer.parseInt(String.valueOf(temp.charAt(rt)))));
-
-                    if(rt >= length-1) {
-                        if(calSosu(sum) == -1) {
-                            br = true;
-                            break;
-                        }
-                        sum = sum.subtract(new BigDecimal(Integer.parseInt(String.valueOf(temp.charAt(lt)))));
-                        lt++;
-                    }
-                }
-            }
-
-            if(!br) {
-                answer = answer.add(BigDecimal.ONE);
-            }
-            min = min.add(BigDecimal.ONE);
-        }
-
-        BigDecimal d = new BigDecimal("1000000007");
-        return String.valueOf(answer.remainder(d));
+        BigDecimal temp = new BigDecimal(String.valueOf(sum-2));
+        //String answer = String.valueOf(temp.remainder(new BigDecimal("1000000007")));
+        return String.valueOf(temp);
     }
 
     public static void main(String[] args) {
@@ -90,6 +71,8 @@ public class PrimeDigitSums {
         for(String x : answers) {
             System.out.println(x);
         }
+
+
     }
 }
 
