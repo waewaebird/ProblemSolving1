@@ -3,9 +3,9 @@ package DfsBfs.rev;
 import java.util.Arrays;
 import java.util.Scanner;
 
-public class Main5RRRR {
+public class Main5RRRRR {
     // 동전교환
-    public static Integer soltuion(int n, int[] arr, int m) {
+    public static Integer solution(int n, int[] arr, int m) {
         int[] dp = new int[m+1];
 
         Arrays.fill(dp, Integer.MAX_VALUE);
@@ -13,10 +13,9 @@ public class Main5RRRR {
 
         for (int i = 0; i < n; i++) {
             for (int j = arr[i]; j <= m; j++) {
-                dp[j] = Math.min(dp[j], dp[j- arr[i]] + 1);
+                dp[j] = Math.min(dp[j], dp[j - arr[i]] + 1);
             }
         }
-
         return dp[m];
     }
 
@@ -25,13 +24,12 @@ public class Main5RRRR {
 
         int n = in.nextInt();
         int[] arr = new int[n];
-
         for (int i = 0; i < n; i++) {
             arr[i] = in.nextInt();
         }
 
         int m = in.nextInt();
 
-        System.out.println(soltuion(n,arr,m));
+        System.out.println(solution(n,arr,m));
     }
 }
