@@ -88,7 +88,6 @@ public class JourneyScheduling {
             }
 
             if(number > 0) {
-                System.out.println(number);
                 System.out.println((long)number * (long)(count- 8) + answer);
             } else {
                 System.out.println(answer);
