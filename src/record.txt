@@ -454,3 +454,7 @@ dp 2
 ht 4
 db 15
 db 5
+ga 7
+ts 2
+ga 4
+db 7
