@@ -458,3 +458,7 @@ ga 7
 ts 2
 ga 4
 db 7
+sq 4
+sq 7
+ht 5
+db 6
