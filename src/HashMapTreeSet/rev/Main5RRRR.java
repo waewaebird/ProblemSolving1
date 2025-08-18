@@ -2,50 +2,44 @@ package HashMapTreeSet.rev;
 
 import java.util.*;
 
-public class Main5RRR {
-    // // K번째 큰 수
+public class Main5RRRR {
+    // K번째 큰 수
 
     public static Integer solution(int n, int k, int[] arr) {
-        int answer = 0;
-        Set<Integer> answers = new LinkedHashSet<>();
-
-        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        Set<Integer> set = new HashSet<>();
 
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 for (int l = 0; l < n; l++) {
                     if(i != j && j != l && i != l) {
-                        answers.add(arr[i] + arr[j] + arr[l]);
+                        set.add(arr[i] + arr[j] + arr[l]);
                     }
                 }
             }
         }
 
-        for(Integer x : answers) {
+        PriorityQueue<Integer> queue = new PriorityQueue<>(Collections.reverseOrder());
+        for(int x : set) {
             queue.offer(x);
         }
 
+        int now = -1;
         int cnt = 0;
         while(!queue.isEmpty()) {
             cnt++;
             int temp = queue.poll();
 
             if(cnt == k) {
-                answer = temp;
+                now = temp;
                 break;
             }
         }
 
-        if(answer == 0) {
-            answer = -1;
-        }
-
-        return answer;
+        return now;
     }
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         int n = in.nextInt();
         int k = in.nextInt();
 
