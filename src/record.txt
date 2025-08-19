@@ -462,3 +462,7 @@ sq 4
 sq 7
 ht 5
 db 6
+ss 4
+a 11
+sq 3
+db 4
