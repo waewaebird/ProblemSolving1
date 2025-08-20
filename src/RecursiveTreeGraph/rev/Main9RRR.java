@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 
 public class Main9RRR {
+    // Tree 말단 노드까지의 가장 짧은 경로
     Node root;
 
     public static int BFS(Node root) {
