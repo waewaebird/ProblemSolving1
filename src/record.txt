@@ -482,3 +482,7 @@ ts 5
 s 8
 s 9
 db 8
+ga 7
+rt 10
+db 2
+db 10
