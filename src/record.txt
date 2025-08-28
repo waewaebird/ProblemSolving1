@@ -486,3 +486,7 @@ ga 7
 rt 10
 db 2
 db 10
+ss 8
+a 7
+db 3
+db 4
