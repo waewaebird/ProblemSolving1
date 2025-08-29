@@ -490,3 +490,7 @@ ss 8
 a 7
 db 3
 db 4
+ga 2
+rt 1
+ss 1
+db 6
