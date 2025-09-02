@@ -498,3 +498,7 @@ ht 5
 ts 6
 s 7
 db 13
+dp 3
+ga 8
+sq 4
+db 5
