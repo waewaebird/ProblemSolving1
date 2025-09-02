@@ -1,4 +1,4 @@
-package zHackerRank;
+package zHackerRank._202508;
 
 import java.util.HashSet;
 import java.util.Scanner;
