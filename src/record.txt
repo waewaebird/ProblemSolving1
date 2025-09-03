@@ -502,3 +502,7 @@ dp 3
 ga 8
 sq 4
 db 5
+sq 8
+db 2
+a 12
+db 8
