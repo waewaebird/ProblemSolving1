@@ -514,3 +514,7 @@ ts 5
 s 5
 rt 12
 db 7
+ss 3
+ga 8
+rt 7
+db 5
