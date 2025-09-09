@@ -518,3 +518,7 @@ ss 3
 ga 8
 rt 7
 db 5
+ht 2
+a 12
+sq 3
+db 7
