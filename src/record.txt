@@ -526,3 +526,7 @@ dp 4
 a 9
 a 10
 db 7
+ss 8
+rt 6
+ga 7
+db 12

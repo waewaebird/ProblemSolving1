@@ -28,13 +28,13 @@ public class Main4 {
     public static int solution(List<Top> arr) {
         int answer = 0;
         Collections.sort(arr);
-        int dy[] = new int[arr.size()];
-        dy[0] = arr.get(0).height;
+        int dy[] = new int[arr.size()]; // i번쨰 벽돌을 제일 위에 놓았을때의 높이, 정렬을 해놓아서 25아래로 내려올껀 없고,
+        dy[0] = arr.get(0).height; // 넓이는 내림차순으로 정렬했기 때문에, 차례대로 (무게를 봐야함.) 그위로 올라갈수 있다!.
         answer = dy[0];
-        for (int i = 1; i <= arr.size() ; i++) {
+        for (int i = 1; i < arr.size() ; i++) {
             int max_h = 0;
             for (int j = i-1; j >= 0 ; j--) {
-                if(arr.get(j).weight > arr.get(i).weight && dy[j] > max_h) {
+                if(arr.get(j).weight > arr.get(i).weight && dy[j] > max_h) {//dy[i]가 무거워야 dy[i]를 맨위로 올릴 수 있다.
                     max_h = dy[j];
                 }
             }
