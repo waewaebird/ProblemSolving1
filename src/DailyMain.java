@@ -67,7 +67,7 @@ public class DailyMain {
 
                 if(wantsArr.size() == wantCnt-1) {
                     String subject = node.get(key).get("number").toString().split(" ")[0].replace("\"","");
-                    if(!subject.equals("db")) {
+                    if(!subject.equals("ga")) {
                         continue;
                     }
                 }

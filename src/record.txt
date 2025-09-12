@@ -530,3 +530,7 @@ ss 8
 rt 6
 ga 7
 db 12
+ts 5
+ss 10
+a 10
+db 4
