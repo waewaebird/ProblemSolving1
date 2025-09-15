@@ -534,3 +534,7 @@ ts 5
 ss 10
 a 10
 db 4
+sq 5
+ga 2
+s 11
+ga 3
