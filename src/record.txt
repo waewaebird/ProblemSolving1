@@ -538,3 +538,7 @@ sq 5
 ga 2
 s 11
 ga 3
+ht 3
+rt 8
+ss 4
+ga 3
