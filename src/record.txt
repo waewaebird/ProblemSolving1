@@ -542,3 +542,7 @@ ht 3
 rt 8
 ss 4
 ga 3
+dp 1
+db 12
+ss 6
+ga 2
