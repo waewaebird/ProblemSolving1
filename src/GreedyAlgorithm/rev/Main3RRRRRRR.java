@@ -4,22 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class Main3RRRRR {
+public class Main3RRRRRRR {
     // 결혼식
-    static class Wedding implements Comparable<Wedding>{
+    static class Wedding implements Comparable<Wedding> {
         int time;
-        char x;
+        Character word;
 
-        public Wedding(int time, char x) {
+        public Wedding(int time, Character word) {
             this.time = time;
-            this.x = x;
+            this.word = word;
         }
-
 
         @Override
         public int compareTo(Wedding o) {
             if(this.time == o.time) {
-                return Integer.compare(o.x, this.x);
+                return Integer.compare(o.word, this.word);
             } else {
                 return Integer.compare(this.time, o.time);
             }
@@ -27,18 +26,18 @@ public class Main3RRRRR {
     }
 
     public static Integer solution(int n, List<Wedding> list) {
-        int answer = 0;
         list.sort(null);
 
-        int cnt = 0;
-        for (Wedding w : list) {
-            if(w.x == 'a') {
-                cnt++;
-            } else {
-                cnt--;
-            }
+        int answer = 0;
+        int io = 0;
 
-            answer = Math.max(answer, cnt);
+        for(Wedding w : list) {
+            if(w.word == 'a') {
+                io++;
+            } else {
+                io--;
+            }
+            answer = Math.max(answer, io);
         }
 
         return answer;
@@ -46,10 +45,10 @@ public class Main3RRRRR {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
+        List<Wedding> list = new ArrayList<>();
 
         int n = in.nextInt();
 
-        List<Wedding> list = new ArrayList<>();
         for (int i = 0; i < n; i++) {
             int a = in.nextInt();
             int b = in.nextInt();

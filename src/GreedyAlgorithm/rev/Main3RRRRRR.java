@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main3RRRRRR {
+    // 결혼식
     static class Wedding implements Comparable<Wedding>{
         int time;
         char act;
