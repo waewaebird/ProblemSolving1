@@ -58,8 +58,4 @@ class Solution_20250905_2 {
         return answer;
     }
 
-/*    public static void main(String[] args) {
-        zProgrammers.zProgrammers.Solution s = new zProgrammers.zProgrammers.Solution();
-        s.solution("100", "203045");
-    }*/
 }

@@ -546,3 +546,7 @@ dp 1
 db 12
 ss 6
 ga 2
+sq 8
+a 7
+a 10
+ga 3
