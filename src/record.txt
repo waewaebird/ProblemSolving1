@@ -550,3 +550,7 @@ sq 8
 a 7
 a 10
 ga 3
+ts 6
+ss 1
+ts 4
+ga 3
