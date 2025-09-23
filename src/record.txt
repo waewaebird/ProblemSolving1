@@ -558,3 +558,7 @@ dp 5
 a 4
 sq 4
 ga 6
+ht 3
+ht 5
+ga 1
+ga 7
