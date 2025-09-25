@@ -566,3 +566,7 @@ dp 2
 ss 5
 db 4
 ga 3
+sq 3
+a 6
+rt 14
+ga 2
