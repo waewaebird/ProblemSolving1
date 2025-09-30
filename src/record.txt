@@ -578,3 +578,7 @@ dp 5
 ts 5
 a 5
 ga 5
+ss 5
+ht 4
+db 3
+ga 6
