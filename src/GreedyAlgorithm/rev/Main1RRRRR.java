@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main1RRRRR {
+    // 씨름 선수
     static class Player implements Comparable<Player>{
         int height;
         int weight;
