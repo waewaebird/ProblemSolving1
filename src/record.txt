@@ -590,3 +590,7 @@ dp 3
 rt 13
 rt 12
 ga 1
+sq 6
+ht 2
+rt 7
+ga 8
