@@ -594,3 +594,7 @@ sq 6
 ht 2
 rt 7
 ga 8
+ss 8
+ss 10
+dp 6
+ga 4
