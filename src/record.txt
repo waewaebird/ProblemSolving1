@@ -602,3 +602,7 @@ sq 8
 s 6
 s 1
 ga 1
+ts 1
+ht 4
+sq 2
+ga 4
