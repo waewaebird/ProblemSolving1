@@ -606,3 +606,7 @@ ts 1
 ht 4
 sq 2
 ga 4
+dp 3
+ss 3
+rt 1
+ga 2
