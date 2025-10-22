@@ -618,3 +618,7 @@ sq 6
 dp 1
 ss 2
 ga 2
+rt 10
+db 15
+dp 1
+ga 7
