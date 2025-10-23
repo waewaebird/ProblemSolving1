@@ -3,7 +3,7 @@
 자료구조 : 자바 컬렉션 프레임워크(JCF 구조)
 - HashMap
 - TreeSet
-- Stack = LIFO
+- Stack = LIFO : 괄호 검증, 같은문자연속제거, 짝지어 제거하기는 무조건 Stack부터 생각해봐야함!
 - Queue = FIFO
 - 이진트리(상태트리) (부모 - 왼쪽자식, 오른쪽자식) : 전위순회, 중위순회, 후위순회
 - Priority Queue (기본적으로 최솟값을 꺼냄, reverseOrder 하면 최댓값)
