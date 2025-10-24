@@ -626,3 +626,7 @@ rt 2
 rt 1
 a 4
 ga 7
+ss 2
+ts 2
+ts 3
+ga 4
