@@ -630,3 +630,7 @@ ss 2
 ts 2
 ts 3
 ga 4
+sq 1
+ht 1
+db 8
+ga 2
