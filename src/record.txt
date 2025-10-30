@@ -642,3 +642,7 @@ rt 1
 db 6
 sq 2
 ga 8
+rt 7
+db 7
+rt 3
+ga 6
