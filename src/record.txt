@@ -646,3 +646,7 @@ rt 7
 db 7
 rt 3
 ga 6
+ss 3
+s 4
+ts 6
+ga 5
