@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202510;
 
 class Solution_20251031_1 {
     public String solution(String str1, String str2) {
