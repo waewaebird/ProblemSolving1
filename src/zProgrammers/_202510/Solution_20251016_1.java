@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202510;
 
 import java.util.Arrays;
 import java.util.HashMap;

@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202510;
 
 class Solution_20251017_1 {
     public int solution(int n) {

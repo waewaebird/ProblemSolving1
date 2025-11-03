@@ -650,3 +650,7 @@ ss 3
 s 4
 ts 6
 ga 5
+sq 7
+rt 8
+rt 6
+ga 1
