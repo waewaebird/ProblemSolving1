@@ -654,3 +654,7 @@ sq 7
 rt 8
 rt 6
 ga 1
+ss 8
+dp 4
+ss 10
+ga 5
