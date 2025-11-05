@@ -658,3 +658,7 @@ ss 8
 dp 4
 ss 10
 ga 5
+sq 8
+db 9
+ht 2
+ga 8
