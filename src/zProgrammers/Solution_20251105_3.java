@@ -1,7 +1,9 @@
+package zProgrammers;
+
 import java.util.ArrayList;
 import java.util.List;
 
-class Solution {
+class Solution_20251105_3 {
     static class Distance implements Comparable<Distance> {
         int start;
         int end;
