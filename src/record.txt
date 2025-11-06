@@ -662,3 +662,7 @@ sq 8
 db 9
 ht 2
 ga 8
+ss 5
+s 2
+db 3
+ga 5
