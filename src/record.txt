@@ -670,3 +670,7 @@ rt 7
 db 6
 dp 6
 ga 7
+sq 5
+ht 4
+ga 3
+ga 7
