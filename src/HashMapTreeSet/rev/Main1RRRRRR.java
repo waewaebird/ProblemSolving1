@@ -4,20 +4,20 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
-public class Main1RRRRR {
+public class Main1RRRRRR {
     // 학급 회장(해쉬)
-    public static Character solution(int n, String str) {
-        Map<Character, Integer> map = new HashMap<>();
+    public static String solution(int n, String str) {
+        Map<String , Integer> maps = new HashMap<>();
         for(char x : str.toCharArray()) {
-            map.put(x, map.getOrDefault(x, 0) + 1);
+            maps.put(String.valueOf(x), maps.getOrDefault(String.valueOf(x),0) + 1);
         }
 
-        Character answer = 0;
         int max = 0;
-        for(Map.Entry<Character, Integer> entry : map.entrySet()) {
+        String answer = "";
+        for(Map.Entry<String, Integer> entry : maps.entrySet()) {
             if(entry.getValue() > max) {
-                answer = entry.getKey();
                 max = entry.getValue();
+                answer = entry.getKey();
             }
         }
 
@@ -26,10 +26,9 @@ public class Main1RRRRR {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-
         int n = in.nextInt();
         String str = in.next();
 
-        System.out.println(solution(n, str));
+        System.out.println(solution(n,str));
     }
 }

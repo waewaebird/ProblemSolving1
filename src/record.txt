@@ -674,3 +674,7 @@ sq 5
 ht 4
 ga 3
 ga 7
+rt 7
+ht 1
+a 12
+ga 2
