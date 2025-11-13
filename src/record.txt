@@ -678,3 +678,7 @@ rt 7
 ht 1
 a 12
 ga 2
+ss 7
+ss 10
+sq 4
+ga 7
