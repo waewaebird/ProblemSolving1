@@ -690,3 +690,7 @@ rt 1
 rt 8
 a 6
 ga 2
+sq 6
+ts 6
+dp 5
+ga 2
