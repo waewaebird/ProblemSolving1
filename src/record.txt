@@ -694,3 +694,7 @@ sq 6
 ts 6
 dp 5
 ga 2
+ss 9
+db 12
+a 12
+ga 4
