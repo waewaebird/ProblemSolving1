@@ -702,3 +702,7 @@ rt 13
 ss 3
 dp 6
 ga 5
+sq 5
+db 2
+a 8
+ga 5
