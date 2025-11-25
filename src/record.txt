@@ -710,3 +710,7 @@ rt 12
 ht 2
 sq 1
 ga 4
+rt 7
+ga 8
+a 4
+ga 3
