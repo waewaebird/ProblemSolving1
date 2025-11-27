@@ -718,3 +718,7 @@ ss 9
 sq 6
 dp 5
 ga 3
+ts 3
+s 2
+sq 4
+ga 4
