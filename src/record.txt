@@ -722,3 +722,7 @@ ts 3
 s 2
 sq 4
 ga 4
+rt 12
+ga 2
+rt 5
+ga 8
