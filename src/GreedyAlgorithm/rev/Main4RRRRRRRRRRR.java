@@ -3,6 +3,7 @@ package GreedyAlgorithm.rev;
 import java.util.*;
 
 public class Main4RRRRRRRRRRR {
+    // 최대 수입 스케쥴
     static class Lecture implements Comparable<Lecture> {
         int money;
         int day;
