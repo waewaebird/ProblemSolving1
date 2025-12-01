@@ -726,3 +726,7 @@ rt 12
 ga 2
 rt 5
 ga 8
+ss 3
+sq 5
+ht 4
+ga 4
