@@ -734,3 +734,7 @@ a 11
 rt 7
 a 7
 ga 3
+ts 4
+ss 6
+sq 3
+ga 3
