@@ -738,3 +738,7 @@ ts 4
 ss 6
 sq 3
 ga 3
+dp 1
+s 12
+ts 1
+ga 6
