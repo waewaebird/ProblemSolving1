@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Scanner;
 
 public class Main1RRRRRRR {
+    // 두 배열 합치기
     public static List<Integer> solution(int n, int[] narr, int m, int[] marr) {
         List<Integer> answers = new ArrayList<>();
         
