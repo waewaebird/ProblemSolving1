@@ -62,3 +62,7 @@
 
 조합 : DFS
 
+- 캐싱 기법 = 결과를 저장해서 재사용하는 모든 방식
+- Dynamic Programming이 Memoization과 Tabulation를 포함하는 개념 
+1. Top-Down : 뒤에서부터 채워지는 방식 , 재귀 + Map으로 필요한 것만 연산(Memoization) 
+2. Bottom-Up : 앞에서부터 채워지는 방식 , 반복문 + 배열로 모든경우 연산(Tabulation)
