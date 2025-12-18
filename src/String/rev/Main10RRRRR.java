@@ -3,6 +3,7 @@ package String.rev;
 import java.util.Scanner;
 
 public class Main10RRRRR {
+    // 가장 짧은 문자거리
     public static int[] solution(String s) {
         String[] arr = s.split(" ");
         String str = arr[0];
