@@ -790,3 +790,7 @@ sq 8
 ss 9
 db 1
 ga 2
+dp 1
+rt 14
+ga 1
+ga 4
