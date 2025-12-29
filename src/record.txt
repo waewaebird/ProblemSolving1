@@ -794,3 +794,7 @@ dp 1
 rt 14
 ga 1
 ga 4
+db 1
+a 6
+s 6
+ga 7
