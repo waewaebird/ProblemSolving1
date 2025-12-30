@@ -24,7 +24,7 @@ public class Main7RRR {
         if(n == r) {
            return memo[n][r] =  1;
         } else{
-            return  memo[n][r] = DFS(n-1,r-1) + DFS(n-1,r);
+            return memo[n][r] = DFS(n-1,r-1) + DFS(n-1,r);
         }
     }
 
