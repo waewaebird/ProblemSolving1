@@ -2,7 +2,7 @@ package DfsBfs.rev;
 
 import java.util.Scanner;
 
-public class Main33 {
+public class Main10RRRRRRRRRRRRRRRR {
     // 미로탐색
     static int[][] arr = new int[7][7];
     static int[] DI = {-1,0,0,1};
