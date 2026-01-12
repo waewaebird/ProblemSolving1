@@ -830,3 +830,7 @@ ht 1
 ts 3
 rt 13
 ga 2
+dp 4
+sq 4
+db 15
+ga 2
