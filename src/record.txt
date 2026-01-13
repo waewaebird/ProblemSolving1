@@ -834,3 +834,7 @@ dp 4
 sq 4
 db 15
 ga 2
+ss 8
+rt 7
+dp 5
+ga 7
