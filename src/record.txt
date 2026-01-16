@@ -842,3 +842,7 @@ db 11
 ts 2
 s 9
 ga 4
+ss 7
+rt 4
+ss 5
+ga 1
