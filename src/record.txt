@@ -858,3 +858,7 @@ sq 1
 ss 9
 s 11
 ga 2
+rt 8
+dp 5
+sq 7
+ga 1
