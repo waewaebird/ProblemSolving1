@@ -870,3 +870,7 @@ rt 5
 a 12
 dp 4
 ga 1
+ht 4
+ts 2
+ss 1
+ga 3
