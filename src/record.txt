@@ -874,3 +874,7 @@ ht 4
 ts 2
 ss 1
 ga 3
+s 1
+ga 5
+db 4
+ga 1
