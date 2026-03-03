@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202602;
 
 class Solution_20260209_1 {
     public int solution(int[] num_list) {

@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202602;
 
 class Solution_20260213_3 {
     public String solution(String polynomial) {

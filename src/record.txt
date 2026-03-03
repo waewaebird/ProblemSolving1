@@ -886,3 +886,7 @@ sq 8
 a 2
 ts 6
 ga 6
+s 6
+sq 3
+sq 1
+ga 4

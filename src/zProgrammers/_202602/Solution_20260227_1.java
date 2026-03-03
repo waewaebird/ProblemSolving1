@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202602;
 
 class Solution_20260227_1 {
     public int[] solution(int[] arr, int[][] intervals) {
