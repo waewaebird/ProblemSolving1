@@ -890,3 +890,7 @@ s 6
 sq 3
 sq 1
 ga 4
+rt 1
+rt 10
+db 15
+ga 3
