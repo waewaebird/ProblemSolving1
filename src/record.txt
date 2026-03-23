@@ -902,3 +902,7 @@ s 11
 dp 3
 ss 5
 ga 5
+ht 3
+ts 2
+a 9
+ga 3
