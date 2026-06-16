@@ -1,6 +1,4 @@
-package zProgrammers;
-
-import java.util.Arrays;
+package zProgrammers._202603;
 
 class Solution_20260320_3 {
     public int solution(int n, int[] money) {

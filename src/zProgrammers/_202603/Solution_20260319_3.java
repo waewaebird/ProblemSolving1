@@ -1,4 +1,4 @@
-package zProgrammers;
+package zProgrammers._202603;
 
 class Solution_20260319_3 {
     public int[] solution(int[] arr, int[][] queries) {
