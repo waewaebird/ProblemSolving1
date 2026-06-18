@@ -918,3 +918,7 @@ rt 7
 db 9
 db 10
 ga 6
+rt 4
+ga 4
+ss 4
+ga 2
